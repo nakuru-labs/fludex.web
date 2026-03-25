@@ -4,6 +4,8 @@ import SiteHeader from '../components/SiteHeader.vue'
 import HeroSection from '../components/HeroSection.vue'
 import FeatureShowcase from '../components/FeatureShowcase.vue'
 import FeatureGrid from '../components/FeatureGrid.vue'
+import CtaStrip from '../components/CtaStrip.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 </script>
 
 <template>
@@ -15,7 +17,9 @@ import FeatureGrid from '../components/FeatureGrid.vue'
         <FeatureShowcase />
       </ClientOnly>
       <FeatureGrid />
+      <CtaStrip />
     </main>
+    <SiteFooter />
   </div>
 </template>
 

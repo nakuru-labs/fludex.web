@@ -2,7 +2,8 @@
 
 ### `docs/guide/concepts.md`
 
-```md
+---
+
 # Core Concepts
 
 ## Mental model

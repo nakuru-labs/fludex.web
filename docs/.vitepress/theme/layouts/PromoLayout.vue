@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import SiteHeader from '../components/SiteHeader.vue'
 import HeroSection from '../components/HeroSection.vue'
+import FeatureGrid from '../components/FeatureGrid.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import HeroSection from '../components/HeroSection.vue'
     <SiteHeader />
     <main class="promo-main">
       <HeroSection />
+      <FeatureGrid />
     </main>
   </div>
 </template>

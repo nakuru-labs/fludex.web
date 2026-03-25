@@ -1,17 +1,15 @@
 <!-- docs/.vitepress/theme/components/SiteHeader.vue -->
 <script setup lang="ts">
+import SiteLogo from './SiteLogo.vue'
 </script>
 
 <template>
   <header class="site-header">
     <div class="site-header__inner">
-      <a href="/" class="site-header__logo">
-        <img :src="'/fludex-logo.png'" class="site-header__logo-mark" alt="" aria-hidden="true" />
-        <span class="site-header__logo-text">Flude<span class="site-header__logo-x">X</span></span>
-      </a>
+      <SiteLogo />
       <nav class="site-header__nav">
         <a href="/guide/" class="site-header__link">Docs</a>
-        <a href="#" class="site-header__link site-header__link--cta">Asset Store</a>
+        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="site-header__link site-header__link--cta">Asset Store</a>
       </nav>
     </div>
   </header>
@@ -29,8 +27,6 @@
 }
 
 .site-header__inner {
-  max-width: var(--content-width);
-  margin: 0 auto;
   padding: 0 var(--space-6);
   height: 60px;
   display: flex;
@@ -38,30 +34,6 @@
   justify-content: space-between;
 }
 
-.site-header__logo {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-}
-
-.site-header__logo-mark {
-  height: calc(1.25rem + 2px);
-  width: auto;
-  display: block;
-}
-
-.site-header__logo-text {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 300;
-  color: var(--color-text-primary);
-  letter-spacing: 0.01em;
-}
-
-.site-header__logo-x {
-  color: #5E5CE6;
-}
 
 .site-header__nav {
   display: flex;

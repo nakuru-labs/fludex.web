@@ -23,18 +23,4 @@ export const videoTabs: VideoTab[] = [
     poster: '',
     caption: 'Blank-canvas debug panel. Populate it entirely at runtime with your own pages and widgets.',
   },
-  {
-    id: 'widgets',
-    label: 'WidgetsBook',
-    videoSrc: '',
-    poster: '',
-    caption: 'Toggles, sliders, buttons, selectors — a full widget library with live data binding.',
-  },
-  {
-    id: 'trigger',
-    label: 'Gesture Trigger',
-    videoSrc: '',
-    poster: '',
-    caption: 'Triple-tap the on-screen hit area to open the panel. Works on every platform.',
-  },
 ]

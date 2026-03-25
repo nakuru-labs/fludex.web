@@ -6,6 +6,7 @@
 
 /* Override VitePress root vars to match our design system */
 :root {
+  --vp-layout-max-width: 1120px;
   --vp-font-family-base: var(--font-body);
   --vp-font-family-mono: var(--font-mono);
   --vp-c-bg:             var(--color-bg);
@@ -30,13 +31,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent code elements in tables from wrapping (e.g. package names) */
+.vp-doc table code {
+  white-space: nowrap;
+}
+
 /* Two-color headline utility classes */
 .accent {
-  color: var(--color-accent-light);
+  background: linear-gradient(to bottom, #5a4adb, #8876e2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .heading {
-  color: var(--color-text-heading);
+  color: var(--color-text-primary);
 }
 
 /* Ambient glow utility */

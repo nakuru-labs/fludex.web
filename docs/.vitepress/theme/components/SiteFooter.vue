@@ -9,7 +9,7 @@
       <nav class="site-footer__links">
         <a href="https://nakurulabs.com" class="site-footer__link" target="_blank" rel="noopener">nakurulabs.com</a>
         <a href="/guide/" class="site-footer__link">Docs</a>
-        <a href="#" class="site-footer__link">Asset Store</a>
+        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="site-footer__link">Asset Store</a>
       </nav>
     </div>
   </footer>

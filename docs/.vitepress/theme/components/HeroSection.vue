@@ -16,9 +16,12 @@
         populate your panel at runtime, open it with a tap.
       </p>
       <div class="hero__actions">
-        <a href="#" class="hero__cta">Get FludeX on Asset Store</a>
+        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="hero__cta">Get FludeX on Asset Store</a>
         <a href="/guide/" class="hero__secondary">Read the docs →</a>
       </div>
+    </div>
+    <div class="hero__preview">
+      <img src="/fludex-promo.png" alt="FludeX debug panel in action" class="hero__preview-img" />
     </div>
   </section>
 </template>
@@ -60,6 +63,7 @@
   letter-spacing: -0.03em;
   margin: 0;
 }
+
 
 .hero__subline {
   font-family: 'Quicksand', sans-serif;
@@ -110,6 +114,31 @@
 .hero__secondary:hover {
   color: var(--color-text-primary);
 }
+
+.hero__preview {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: var(--space-8);
+}
+
+.hero__preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mask-image: radial-gradient(
+    ellipse 60% 70% at 50% 55%,
+    black 50%,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 60% 70% at 50% 55%,
+    black 50%,
+    transparent 80%
+  );
+}
+
 
 @media (max-width: 640px) {
   .hero {

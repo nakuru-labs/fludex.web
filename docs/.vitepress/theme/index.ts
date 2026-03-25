@@ -3,6 +3,7 @@ import { h } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import PromoLayout from './layouts/PromoLayout.vue'
+import DocsLayout from './layouts/DocsLayout.vue'
 import './styles/tokens.css'
 import './styles/base.css'
 
@@ -13,6 +14,6 @@ export default {
     if (frontmatter.value.layout === 'promo') {
       return h(PromoLayout)
     }
-    return h(DefaultTheme.Layout)
+    return h(DocsLayout)
   },
 }

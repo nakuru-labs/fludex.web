@@ -45,14 +45,14 @@ FludeX.Instance.Initialize(new FludexCompositeTrigger(
 ));
 ```
 
-## Disabling the Trigger
+## Manual Control
 
-If you're integrating FludeX alongside another debug tool (e.g. SRDebugger) that already provides its own show/hide UI, you can disable all triggers by passing `FludexNoTrigger`:
+If you want full control over when the panel appears — for example, opening it from a button in your own UI or tying it to a custom game event — pass `FludexNoTrigger` to skip the built-in triggers entirely and drive visibility from code:
 
 ```csharp
 FludeX.Instance.Initialize(new FludexNoTrigger());
 
-// Then open/close the panel from your own code:
+// Open and close the panel whenever you need:
 FludeX.Instance.Show();
 FludeX.Instance.Hide();
 ```

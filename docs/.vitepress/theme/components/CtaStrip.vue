@@ -13,7 +13,7 @@
       <p class="cta-strip__sub">
         Available now on the Unity Asset Store. Requires Unity 2021.3.0f1 or later.
       </p>
-      <a href="#" class="cta-strip__button">Get FludeX on Asset Store</a>
+      <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="cta-strip__button">Get FludeX on Asset Store</a>
     </div>
   </section>
 </template>

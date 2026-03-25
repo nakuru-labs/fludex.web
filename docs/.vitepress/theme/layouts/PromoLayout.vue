@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import SiteHeader from '../components/SiteHeader.vue'
 import HeroSection from '../components/HeroSection.vue'
+import FeatureShowcase from '../components/FeatureShowcase.vue'
 import FeatureGrid from '../components/FeatureGrid.vue'
 </script>
 
@@ -10,6 +11,9 @@ import FeatureGrid from '../components/FeatureGrid.vue'
     <SiteHeader />
     <main class="promo-main">
       <HeroSection />
+      <ClientOnly>
+        <FeatureShowcase />
+      </ClientOnly>
       <FeatureGrid />
     </main>
   </div>

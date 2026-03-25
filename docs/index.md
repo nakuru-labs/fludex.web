@@ -1,1 +1,3 @@
-# FludeX
+---
+layout: promo
+---

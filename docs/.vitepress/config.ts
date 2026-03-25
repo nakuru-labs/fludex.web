@@ -7,20 +7,14 @@ export default defineConfig({
   base: '/',
 
   head: [
+    // Fonts
     [
       'link',
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.googleapis.com',
-      },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     ],
     [
       'link',
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossorigin: '',
-      },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
     ],
     [
       'link',
@@ -29,6 +23,18 @@ export default defineConfig({
         href: 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap',
       },
     ],
+    // Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'FludeX' }],
+    ['meta', { property: 'og:title', content: 'FludeX — Runtime Debug Tool for Unity' }],
+    ['meta', { property: 'og:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, device-native, and built to extend.' }],
+    ['meta', { property: 'og:image', content: 'https://fludex.dev/og.png' }],
+    ['meta', { property: 'og:url', content: 'https://fludex.dev' }],
+    // Twitter / X
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'FludeX — Runtime Debug Tool for Unity' }],
+    ['meta', { name: 'twitter:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, device-native, and built to extend.' }],
+    ['meta', { name: 'twitter:image', content: 'https://fludex.dev/og.png' }],
   ],
 
   themeConfig: {

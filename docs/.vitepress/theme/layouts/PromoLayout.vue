@@ -6,10 +6,12 @@ import FeatureShowcase from '../components/FeatureShowcase.vue'
 import FeatureGrid from '../components/FeatureGrid.vue'
 import CtaStrip from '../components/CtaStrip.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import BokehBackground from '../components/BokehBackground.vue'
 </script>
 
 <template>
   <div class="promo-root">
+    <BokehBackground />
     <SiteHeader />
     <main class="promo-main">
       <HeroSection />
@@ -27,6 +29,8 @@ import SiteFooter from '../components/SiteFooter.vue'
 .promo-root {
   min-height: 100vh;
   background: var(--color-bg);
+  position: relative;
+  z-index: 1;
 }
 
 .promo-main {

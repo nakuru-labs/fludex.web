@@ -38,7 +38,53 @@ export default defineConfig({
       { text: 'Asset Store', link: '#' },
     ],
 
-    sidebar: [],
+    sidebar: [
+      {
+        text: 'Getting Started',
+        items: [
+          { text: 'Introduction', link: '/guide/' },
+          { text: 'Installation', link: '/guide/installation' },
+          { text: 'Quick Start', link: '/guide/quick-start' },
+        ],
+      },
+      {
+        text: 'Core',
+        items: [
+          { text: 'Overview', link: '/core/' },
+          { text: 'Triggers', link: '/core/triggers' },
+          { text: 'WidgetsBook', link: '/core/widgets-book' },
+          { text: 'Custom Modules', link: '/core/custom-modules' },
+          { text: 'Changelog', link: '/core/changelog' },
+        ],
+      },
+      {
+        text: 'Overview Module',
+        items: [
+          { text: 'Documentation', link: '/modules/overview/' },
+          { text: 'Changelog', link: '/modules/overview/changelog' },
+        ],
+      },
+      {
+        text: 'Playground Module',
+        items: [
+          { text: 'Documentation', link: '/modules/playground/' },
+          { text: 'Changelog', link: '/modules/playground/changelog' },
+        ],
+      },
+      {
+        text: 'Console Module',
+        items: [
+          { text: 'Documentation', link: '/modules/console/' },
+          { text: 'Changelog', link: '/modules/console/changelog' },
+        ],
+      },
+      {
+        text: 'Reference',
+        items: [
+          { text: 'Samples', link: '/samples' },
+        ],
+      },
+    ],
 
     socialLinks: [],
   },

@@ -5,7 +5,10 @@
 <template>
   <header class="site-header">
     <div class="site-header__inner">
-      <a href="/" class="site-header__logo">FludeX</a>
+      <a href="/" class="site-header__logo">
+        <img :src="'/fludex-logo.png'" class="site-header__logo-mark" alt="" aria-hidden="true" />
+        <span class="site-header__logo-text">Flude<span class="site-header__logo-x">X</span></span>
+      </a>
       <nav class="site-header__nav">
         <a href="/guide/" class="site-header__link">Docs</a>
         <a href="#" class="site-header__link site-header__link--cta">Asset Store</a>
@@ -36,12 +39,29 @@
 }
 
 .site-header__logo {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  gap: 2px;
   text-decoration: none;
-  letter-spacing: -0.02em;
+}
+
+.site-header__logo-mark {
+  height: 1em;
+  width: auto;
+  display: block;
+  font-size: 1.125rem;
+}
+
+.site-header__logo-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  letter-spacing: 0.01em;
+}
+
+.site-header__logo-x {
+  color: #5E5CE6;
 }
 
 .site-header__nav {

@@ -41,21 +41,20 @@
 .site-header__logo {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 5px;
   text-decoration: none;
 }
 
 .site-header__logo-mark {
-  height: 1em;
+  height: calc(1.25rem + 2px);
   width: auto;
   display: block;
-  font-size: 1.125rem;
 }
 
 .site-header__logo-text {
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.375rem;
-  font-weight: 400;
+  font-size: 1.75rem;
+  font-weight: 300;
   color: var(--color-text-primary);
   letter-spacing: 0.01em;
 }

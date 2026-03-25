@@ -1,0 +1,45 @@
+// docs/.vitepress/config.ts
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  title: 'FludeX',
+  description: 'Modular in-game runtime debug panel for Unity.',
+  base: '/',
+
+  head: [
+    [
+      'link',
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: '',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap',
+      },
+    ],
+  ],
+
+  themeConfig: {
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Docs', link: '/guide/' },
+      { text: 'Asset Store', link: '#' },
+    ],
+
+    sidebar: [],
+
+    socialLinks: [],
+  },
+})

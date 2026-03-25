@@ -1,0 +1,47 @@
+/* docs/.vitepress/theme/styles/tokens.css */
+
+:root {
+  /* Backgrounds */
+  --color-bg:             #13111f;
+  --color-surface:        #1a1825;
+  --color-surface-raised: #222030;
+  --color-border:         #2e2b3e;
+
+  /* Accent */
+  --color-accent:         #6b5ce7;
+  --color-accent-light:   #9b8ff5;
+  --color-accent-glow:    rgba(107, 92, 231, 0.18);
+
+  /* Text */
+  --color-text-primary:   #ffffff;
+  --color-text-heading:   #e8e4ff;
+  --color-text-secondary: #c5c0d8;
+  --color-text-muted:     #8b8a9e;
+
+  /* Functional */
+  --color-toggle-on:      #5b4de0;
+  --color-slider-track:   #4a3fd4;
+
+  /* Typography */
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* Layout */
+  --content-width: 1120px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}

@@ -9,13 +9,13 @@
 
   /* Accent */
   --color-accent:         #6b5ce7;
-  --color-accent-light:   #9b8ff5;
+  --color-accent-light:   #8876e2;
   --color-accent-glow:    rgba(107, 92, 231, 0.18);
 
   /* Text */
   --color-text-primary:   #ffffff;
   --color-text-heading:   #e8e4ff;
-  --color-text-secondary: #c5c0d8;
+  --color-text-secondary: #d0c2f3;
   --color-text-muted:     #8b8a9e;
 
   /* Functional */
@@ -24,7 +24,7 @@
 
   /* Typography */
   --font-display: 'Sora', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-body:    'Quicksand', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
   /* Spacing scale */

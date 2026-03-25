@@ -27,6 +27,8 @@ import SiteLogo from './SiteLogo.vue'
 }
 
 .site-header__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
   padding: 0 var(--space-6);
   height: 60px;
   display: flex;

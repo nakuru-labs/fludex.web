@@ -20,9 +20,6 @@
         <a href="/guide/" class="hero__secondary">Read the docs →</a>
       </div>
     </div>
-    <div class="hero__preview">
-      <img src="/fludex-promo.png" alt="FludeX debug panel in action" class="hero__preview-img" />
-    </div>
   </section>
 </template>
 
@@ -115,29 +112,6 @@
   color: var(--color-text-primary);
 }
 
-.hero__preview {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  margin-top: var(--space-8);
-}
-
-.hero__preview-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  mask-image: radial-gradient(
-    ellipse 60% 70% at 50% 55%,
-    black 50%,
-    transparent 80%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 60% 70% at 50% 55%,
-    black 50%,
-    transparent 80%
-  );
-}
 
 
 @media (max-width: 640px) {

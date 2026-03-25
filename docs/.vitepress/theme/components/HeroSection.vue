@@ -62,7 +62,8 @@
 }
 
 .hero__subline {
-  font-family: var(--font-body);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
   font-size: 1.125rem;
   color: var(--color-text-secondary);
   max-width: 560px;

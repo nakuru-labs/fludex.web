@@ -1,5 +1,9 @@
 // docs/.vitepress/config.ts
 import { defineConfig } from 'vitepress'
+import { loadEnv } from 'vite'
+
+const env = loadEnv('', process.cwd())
+const gaId = env.VITE_GA_ID
 
 export default defineConfig({
   title: 'FludeX',
@@ -35,6 +39,13 @@ export default defineConfig({
     ['meta', { name: 'twitter:title', content: 'FludeX — Runtime Debug Tool for Unity' }],
     ['meta', { name: 'twitter:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, device-native, and built to extend.' }],
     ['meta', { name: 'twitter:image', content: 'https://fludex.dev/og.png' }],
+    // Google Analytics
+    ...(gaId
+      ? [
+          ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${gaId}` }],
+          ['script', {}, `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`],
+        ] as [string, Record<string, string>][]
+      : []),
   ],
 
   themeConfig: {

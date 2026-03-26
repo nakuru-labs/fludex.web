@@ -6,6 +6,7 @@
     <div class="bokeh__blob bokeh__blob--3" />
     <div class="bokeh__blob bokeh__blob--4" />
     <div class="bokeh__blob bokeh__blob--5" />
+    <div class="bokeh__blob bokeh__blob--amber" />
   </div>
 </template>
 
@@ -71,5 +72,15 @@
   left: 5%;
   background: rgba(65, 32, 100, 0.20);
   filter: blur(80px);
+}
+
+/* bottom-right amber blob */
+.bokeh__blob--amber {
+  width: 380px;
+  height: 280px;
+  bottom: 0;
+  right: -5%;
+  background: rgba(245, 158, 11, 0.12);
+  filter: blur(100px);
 }
 </style>

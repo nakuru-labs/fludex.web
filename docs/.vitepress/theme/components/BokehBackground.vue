@@ -33,12 +33,12 @@
   filter: blur(90px);
 }
 
-/* top-right blob */
+/* upper-center blob */
 .bokeh__blob--2 {
   width: 420px;
   height: 340px;
   top: 5%;
-  right: -5%;
+  left: 22%;
   background: rgba(75, 38, 118, 0.20);
   filter: blur(100px);
 }
@@ -47,28 +47,28 @@
 .bokeh__blob--3 {
   width: 360px;
   height: 300px;
-  top: 40%;
+  top: 38%;
   left: -5%;
   background: rgba(72, 36, 110, 0.22);
   filter: blur(85px);
 }
 
-/* mid-right blob */
+/* center diagonal blob */
 .bokeh__blob--4 {
   width: 400px;
   height: 300px;
-  top: 50%;
-  right: 5%;
-  background: rgba(68, 34, 105, 0.18);
+  top: 45%;
+  left: 20%;
+  background: rgba(68, 34, 105, 0.16);
   filter: blur(100px);
 }
 
-/* bottom-center blob */
+/* bottom-left blob */
 .bokeh__blob--5 {
   width: 340px;
   height: 260px;
-  bottom: 5%;
-  left: 35%;
+  top: 72%;
+  left: 5%;
   background: rgba(65, 32, 100, 0.20);
   filter: blur(80px);
 }

@@ -28,7 +28,6 @@ import BokehBackground from '../components/BokehBackground.vue'
 <style scoped>
 .promo-root {
   min-height: 100vh;
-  background: var(--color-bg);
   position: relative;
   z-index: 1;
 }

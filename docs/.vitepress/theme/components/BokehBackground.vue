@@ -25,51 +25,51 @@
 
 /* top-left large blob */
 .bokeh__blob--1 {
-  width: 600px;
-  height: 480px;
-  top: -10%;
-  left: -8%;
-  background: rgba(85, 42, 128, 0.28);
+  width: 580px;
+  height: 460px;
+  top: -8%;
+  left: -10%;
+  background: rgba(85, 42, 128, 0.30);
   filter: blur(90px);
 }
 
-/* mid-left blob */
+/* upper-center blob */
 .bokeh__blob--2 {
-  width: 380px;
-  height: 300px;
-  top: 42%;
-  left: -6%;
-  background: rgba(72, 36, 110, 0.22);
-  filter: blur(80px);
-}
-
-/* bottom-left blob */
-.bokeh__blob--3 {
-  width: 320px;
-  height: 260px;
-  top: 72%;
-  left: 8%;
-  background: rgba(65, 32, 100, 0.18);
-  filter: blur(75px);
-}
-
-/* top-center subtle blob */
-.bokeh__blob--4 {
-  width: 450px;
-  height: 320px;
-  top: -8%;
-  left: 28%;
-  background: rgba(70, 35, 108, 0.13);
+  width: 420px;
+  height: 340px;
+  top: 5%;
+  left: 22%;
+  background: rgba(75, 38, 118, 0.20);
   filter: blur(100px);
 }
 
-/* center-right faint blob */
-.bokeh__blob--5 {
-  width: 280px;
-  height: 220px;
-  top: 50%;
-  left: 42%;
-  background: rgba(60, 30, 95, 0.10);
+/* mid-left blob */
+.bokeh__blob--3 {
+  width: 360px;
+  height: 300px;
+  top: 38%;
+  left: -5%;
+  background: rgba(72, 36, 110, 0.22);
   filter: blur(85px);
+}
+
+/* center diagonal blob */
+.bokeh__blob--4 {
+  width: 400px;
+  height: 300px;
+  top: 45%;
+  left: 20%;
+  background: rgba(68, 34, 105, 0.16);
+  filter: blur(100px);
+}
+
+/* bottom-left blob */
+.bokeh__blob--5 {
+  width: 340px;
+  height: 260px;
+  top: 72%;
+  left: 5%;
+  background: rgba(65, 32, 100, 0.20);
+  filter: blur(80px);
 }
 </style>

@@ -13,14 +13,22 @@ Both can be replaced or combined using `Initialize(trigger)`.
 
 ## Tap Trigger
 
-A slightly visible hit area that opens the panel after N taps in a row. Respects device safe area automatically. Configure it via **FludeX Settings → Trigger**:
+A slightly visible hit area that opens the panel after N taps in a row. Respects device safe area automatically. Configure it by passing a `FludexTapTriggerConfig` when constructing `FludexTapTrigger`:
 
-| Setting | Description | Default |
+| Property | Description | Default |
 |---|---|---|
-| Tap count | Number of taps required to open the panel | 3 |
-| Position | Normalized screen position of the hit area | Bottom-center |
-| Radius | Hit area size in pixels | 30 px |
-| Opacity | Visibility of the hit area (0 = invisible, 1 = fully visible) | 0.05 |
+| `TapsToShow` | Number of taps required to open the panel | 3 |
+| `Position` | Normalized screen position of the hit area | Bottom-center (0.5, 1.0) |
+| `Radius` | Hit area size in pixels | 30 px |
+| `Padding` | Extra space around the hit area | 20 px |
+| `Opacity` | Visibility of the hit area (0 = invisible, 1 = fully visible) | 0.05 |
+
+```csharp
+FludeX.Instance.Initialize(new FludexCompositeTrigger(
+    new FludexTapTrigger(new FludexTapTriggerConfig { TapsToShow = 5, Radius = 40 }),
+    new FludexKeyboardTrigger()
+));
+```
 
 ## Keyboard Trigger
 

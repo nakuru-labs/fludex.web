@@ -20,8 +20,10 @@ All other FludeX packages depend on Core.
 
 | Method / Property | Description |
 |---|---|
-| `Initialize()` | Set up FludeX with the default composite trigger (tap + keyboard) |
+| `Initialize()` | Set up FludeX with all defaults |
+| `Initialize(config)` | Set up FludeX with a custom `FludexConfig` (e.g. a different initial module index) |
 | `Initialize(trigger)` | Set up FludeX with a custom `IFludexTrigger` implementation |
+| `Initialize(config, trigger)` | Set up FludeX with both a custom config and a custom trigger |
 | `Show()` | Show the debug panel |
 | `Hide()` | Hide the debug panel |
 | `Toggle()` | Show if hidden, hide if shown |

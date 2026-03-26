@@ -7,7 +7,7 @@
     <div class="cta-strip__glow" aria-hidden="true" />
     <div class="cta-strip__inner">
       <h2 class="cta-strip__heading">
-        <span class="accent">Ready to ship?</span>
+        <span class="accent">Debug faster.</span>
         <span class="heading"> Add FludeX to your project.</span>
       </h2>
       <p class="cta-strip__sub">

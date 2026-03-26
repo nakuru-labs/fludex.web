@@ -4,13 +4,13 @@ title: Introduction
 
 # Introduction
 
-FludeX is a modular, in-game runtime debug panel for Unity — built to feel native on any device and designed with UX first.
+FludeX is a modular runtime debug panel for Unity — built on UIToolkit and AppUI, designed with UX first.
 
-Debugging a shipped or near-shipped build means you need a debug panel that actually runs on device, stays out of the way until you need it, and doesn't require rebuilding every time you add a new control. FludeX solves this with a modular architecture built on Unity UIToolkit and AppUI: install the modules you need, populate your panel at runtime, and open it with a configurable tap gesture — no hacks, no boilerplate.
+Debugging on device means you need a panel that actually runs at runtime, stays out of the way until you need it, and doesn't require rebuilding every time you add a new control. FludeX solves this with a declarative widget API: describe your controls in code, get a fully-rendered debug UI with live data binding — no views to implement, no boilerplate.
 
-## Packages
+## Modules
 
-FludeX is split into independent UPM packages. Install only what you need.
+FludeX uses a modular architecture — each module is independently scoped with its own API and UI. New modules can be added as they become available, or you can build your own with the same ease.
 
 | Package | Description |
 |---|---|

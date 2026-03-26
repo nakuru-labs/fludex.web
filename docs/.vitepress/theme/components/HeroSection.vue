@@ -11,9 +11,9 @@
         <span class="heading">No rebuilds. No hacks.</span>
       </h1>
       <p class="hero__subline">
-        FludeX is a modular in-game debug panel for Unity — gesture-triggered,
-        device-native, and designed to extend. Install the modules you need,
-        populate your panel at runtime, open it with a tap.
+        FludeX is a modular runtime debug panel for Unity. Describe your controls
+        in code, get a fully-rendered debug UI with live data binding — no views
+        to implement, no prefabs to wire up.
       </p>
       <div class="hero__actions">
         <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="hero__cta">Get FludeX on Asset Store</a>

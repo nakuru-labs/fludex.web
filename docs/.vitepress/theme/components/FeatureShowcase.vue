@@ -12,7 +12,7 @@ const { tabs, activeTab, selectTab, preloadTab } = useVideoTabs()
     <div class="feature-showcase__inner">
       <h2 class="feature-showcase__heading">
         <span class="accent">See it in action.</span>
-        <span class="heading"> Every module, live.</span>
+        <span class="heading"> Pick a module.</span>
       </h2>
 
       <TabBar

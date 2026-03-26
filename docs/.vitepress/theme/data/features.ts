@@ -13,14 +13,14 @@ export const features: FeatureCard[] = [
     icon: '◈',
     title: 'Modular architecture',
     description:
-      'Install only what you need. Core, Overview, and Playground are independent UPM packages — no bloat, no unused code.',
+      'Each module is independently scoped and self-contained. Extend your debug panel by adding new modules as your project grows.',
   },
   {
     id: 'uitoolkit',
     icon: '⬡',
-    title: 'UIToolkit-native',
+    title: 'UIToolkit & AppUI',
     description:
-      'Built on Unity UIToolkit and AppUI. The panel feels native on every platform — no legacy IMGUI, no OnGUI overhead.',
+      'Built on the same UIToolkit and AppUI stack Unity itself ships with. Consistent, crisp, and platform-native without extra integration.',
   },
   {
     id: 'cross-device',
@@ -30,11 +30,11 @@ export const features: FeatureCard[] = [
       'Not limited to mobile. The panel adapts fluidly across phones, tablets, and desktops — scaling and repositioning to fit.',
   },
   {
-    id: 'gesture',
+    id: 'trigger',
     icon: '◎',
-    title: 'Gesture-triggered',
+    title: 'Configurable trigger',
     description:
-      'Triple-tap the on-screen hit area to open the panel. Works on all platforms — no separate debug button in your UI.',
+      'Tap, keyboard, composite, or none. Swap the default trigger for your own implementation or control the panel directly from code.',
   },
   {
     id: 'binding',
@@ -46,8 +46,8 @@ export const features: FeatureCard[] = [
   {
     id: 'extensible',
     icon: '⊕',
-    title: 'Built to extend',
+    title: 'Declarative widget API',
     description:
-      'Inject custom widgets into any built-in tab, add new pages at runtime, or build a fully custom module with your own UI.',
+      'Describe your controls in code — what to show, what to bind, what to call. FludeX handles the entire presentation layer out of the box. No views to implement, no UI to wire up.',
   },
 ]

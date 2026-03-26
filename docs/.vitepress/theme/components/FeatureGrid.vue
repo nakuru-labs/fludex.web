@@ -7,8 +7,8 @@ import { features } from '../data/features'
   <section class="feature-grid">
     <div class="feature-grid__inner">
       <h2 class="feature-grid__heading">
-        <span class="accent">Built different.</span>
-        <span class="heading"> Designed to ship.</span>
+        <span class="accent">Modular at its core.</span>
+        <span class="heading"> Designed to extend.</span>
       </h2>
       <div class="feature-grid__cards">
         <div

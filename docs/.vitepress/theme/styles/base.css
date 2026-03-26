@@ -19,6 +19,8 @@
   --vp-c-brand-1:        var(--color-accent);
   --vp-c-brand-2:        var(--color-accent-light);
   --vp-c-brand-3:        var(--color-accent);
+  --vp-code-color:       #f59e0b;
+  --vp-code-bg:          rgba(0, 0, 0, 0.35);
   --vp-nav-bg-color:     var(--color-bg);
 }
 

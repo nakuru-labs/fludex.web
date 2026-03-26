@@ -9,7 +9,7 @@ export default defineConfig({
   title: 'FludeX',
   description: 'Modular in-game runtime debug panel for Unity.',
   base: '/',
-  appearance: false,
+  appearance: 'force-dark',
 
   head: [
     // Fonts

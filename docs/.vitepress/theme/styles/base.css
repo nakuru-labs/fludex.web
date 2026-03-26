@@ -33,6 +33,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Subtle noise texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
 /* Prevent code elements in tables from wrapping (e.g. package names) */
 .vp-doc table code {
   white-space: nowrap;
@@ -54,4 +64,63 @@ body {
 /* Ambient glow utility */
 .glow-behind {
   filter: drop-shadow(0 0 60px var(--color-accent-glow));
+}
+
+/* ── Custom containers (tip / warning / danger / info) ── */
+.vp-doc .custom-block {
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 12px 16px;
+}
+
+.vp-doc .custom-block-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vp-doc .custom-block.tip {
+  background: rgba(107, 92, 231, 0.08);
+  border-color: rgba(107, 92, 231, 0.25);
+}
+.vp-doc .custom-block.tip .custom-block-title {
+  color: var(--color-accent-light);
+}
+
+.vp-doc .custom-block.warning {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+.vp-doc .custom-block.warning .custom-block-title {
+  color: #f59e0b;
+}
+
+.vp-doc .custom-block.danger {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+.vp-doc .custom-block.danger .custom-block-title {
+  color: #ef4444;
+}
+
+.vp-doc .custom-block.info {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--color-border);
+}
+.vp-doc .custom-block.info .custom-block-title {
+  color: var(--color-text-muted);
+}
+
+/* ── Sidebar group titles ── */
+.VPSidebarItem.level-0 > .item > .text {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text-muted) !important;
 }

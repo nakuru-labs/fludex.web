@@ -70,7 +70,7 @@ import { features } from '../data/features'
 
 .feature-card__icon {
   font-size: 1.5rem;
-  color: var(--color-accent-light);
+  color: #f59e0b;
   line-height: 1;
 }
 

@@ -41,15 +41,15 @@
 .hero__badge {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-size: 0.688rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent-light);
-  background: var(--color-accent-glow);
-  border: 1px solid rgba(107, 92, 231, 0.3);
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
   padding: var(--space-2) var(--space-4);
-  border-radius: 999px;
+  border-radius: 4px;
 }
 
 .hero__headline {

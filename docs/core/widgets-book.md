@@ -37,7 +37,7 @@ private void Awake()
         .WithTitle("GAMEPLAY")
         .WithToggle("God Mode", () => godMode)
         .WithButton("Reload Scene", ButtonType.Accent, OnReloadPressed)
-        .WithSlider("Time Scale", () => Time.timeScale, v => Time.timeScale = v, 0f, 2f)
+        .WithSlider("Time Scale", () => Time.timeScale, 0f, 2f)
         .Build());
 
     playground.AddPage(page);
@@ -46,11 +46,17 @@ private void Awake()
 
 ## Data Binding
 
-Pass a getter lambda to any widget that reads a value — FludeX polls it automatically and keeps the widget in sync with your runtime state. No manual refresh calls needed.
+Pass a C# expression to any widget that binds a value — FludeX inspects the expression at runtime to derive both the getter and the setter automatically. No separate setter callback, no manual refresh calls needed.
 
 ```csharp
+// Member access — FludeX auto-derives the setter; widget stays in sync both ways
+.WithToggle("Dark Mode", () => mySettings.darkMode)
+.WithSlider("Volume", () => AudioListener.volume, 0f, 1f)
+
+// Computed expression — getter only, no setter (no writable target to set back to)
 .WithInfo("FPS", () => (1f / Time.deltaTime).ToString("F0"))
-.WithToggle("Dark Mode", () => mySettings.darkMode, v => mySettings.darkMode = v)
 ```
+
+If the target object implements `INotifyPropertyChanged`, the binding wires up change notifications automatically — the widget updates immediately when the value changes, without polling.
 
 See **Sample 02 – WidgetsBook** and **Sample 04 – WidgetsShowcase** for full examples.

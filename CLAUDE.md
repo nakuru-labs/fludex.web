@@ -158,7 +158,7 @@ all factual claims from that file — do not invent capabilities.
 
 Key facts to preserve accurately:
 - Requires Unity 2021.3.0f1 or later
-- Depends on `com.unity.dt.app-ui` 2.1.6 (auto-installed via UPM)
+- Depends on `com.unity.dt.app-ui` 2.1.8 (auto-installed via UPM)
 - Three packages: Core, Overview Module, Playground Module
 - Eight samples across all modules
 - Brand voice: "we" — never a personal name

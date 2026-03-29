@@ -47,7 +47,3 @@ android {
 ```
 
 This tells Gradle to skip `AppUIGameActivity.java` during compilation. `AppUIActivity.java` — the correct entry point for Unity 2021 — remains included and everything builds normally.
-
-### After applying the fix
-
-Clean the build cache before rebuilding: **Edit → Preferences → External Tools → Regenerate project files**, then delete the `Library/Bee` folder and build again.

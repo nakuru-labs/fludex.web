@@ -7,6 +7,7 @@ import FeatureGrid from '../components/FeatureGrid.vue'
 import CtaStrip from '../components/CtaStrip.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import BokehBackground from '../components/BokehBackground.vue'
+import ReviewToast from '../components/ReviewToast.vue'
 </script>
 
 <template>
@@ -22,6 +23,7 @@ import BokehBackground from '../components/BokehBackground.vue'
       <CtaStrip />
     </main>
     <SiteFooter />
+    <ReviewToast />
   </div>
 </template>
 

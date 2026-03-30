@@ -1,5 +1,8 @@
 <!-- docs/.vitepress/theme/components/HeroSection.vue -->
 <script setup lang="ts">
+import { useAssetStoreStatus } from '../composables/useAssetStoreStatus'
+
+const { handleAssetStoreClick } = useAssetStoreStatus()
 </script>
 
 <template>
@@ -16,7 +19,7 @@
         to implement, no prefabs to wire up.
       </p>
       <div class="hero__actions">
-        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="hero__cta">Get FludeX on Asset Store</a>
+        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="hero__cta" data-cta-location="hero" @click="handleAssetStoreClick">Get FludeX on Asset Store</a>
         <a href="/guide/" class="hero__secondary">Read the docs →</a>
       </div>
     </div>

@@ -1,6 +1,9 @@
 <!-- docs/.vitepress/theme/components/SiteHeader.vue -->
 <script setup lang="ts">
 import SiteLogo from './SiteLogo.vue'
+import { useAssetStoreStatus } from '../composables/useAssetStoreStatus'
+
+const { handleAssetStoreClick } = useAssetStoreStatus()
 </script>
 
 <template>
@@ -9,7 +12,7 @@ import SiteLogo from './SiteLogo.vue'
       <SiteLogo />
       <nav class="site-header__nav">
         <a href="/guide/" class="site-header__link">Docs</a>
-        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="site-header__link site-header__link--cta">Asset Store</a>
+        <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="site-header__link site-header__link--cta" data-cta-location="header" @click="handleAssetStoreClick">Asset Store</a>
       </nav>
     </div>
   </header>

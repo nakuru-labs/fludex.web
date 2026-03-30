@@ -55,6 +55,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/guide/' },
+      { text: 'Asset Store', link: 'https://u3d.as/3TW4', target: '_blank', rel: 'noopener' },
     ],
 
     sidebar: [

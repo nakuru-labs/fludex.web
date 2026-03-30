@@ -30,6 +30,13 @@ watch(
 <template>
   <div class="video-player">
     <div class="video-player__frame">
+      <!-- macOS window chrome -->
+      <div class="video-player__titlebar">
+        <span class="titlebar-dot dot-close" />
+        <span class="titlebar-dot dot-minimize" />
+        <span class="titlebar-dot dot-fullscreen" />
+      </div>
+
       <Transition name="fade">
         <video
           v-if="visible"
@@ -58,23 +65,45 @@ watch(
 .video-player__frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
+/* macOS title bar */
+.video-player__titlebar {
+  flex-shrink: 0;
+  height: 20px;
+  background: var(--color-surface-raised);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+}
+
+.titlebar-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-close      { background: #ff5f57; }
+.dot-minimize   { background: #febc2e; }
+.dot-fullscreen { background: #28c840; }
 
 .video-player__video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
 .video-player__placeholder {
-  position: absolute;
-  inset: 0;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;

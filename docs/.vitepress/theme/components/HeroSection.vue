@@ -11,7 +11,7 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
       <div class="hero__badge">Unity Runtime Debug Tool</div>
       <h1 class="hero__headline">
         <span class="accent">Debug at runtime.</span><br />
-        <span class="heading">No rebuilds. No hacks.</span>
+        <span class="heading">Full control. Zero clutter.</span>
       </h1>
       <p class="hero__subline">
         FludeX is a modular runtime debug panel for Unity. Describe your controls

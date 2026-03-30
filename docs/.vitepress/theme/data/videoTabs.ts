@@ -12,15 +12,15 @@ export const videoTabs: VideoTab[] = [
   {
     id: 'overview',
     label: 'Overview Module',
-    videoSrc: '',
-    poster: '',
+    videoSrc: '/videos/overview-module.mp4',
+    poster: '/videos/overview-module.jpg',
     caption: 'Pre-built diagnostic dashboard — System, Display, Build, and Runtime tabs out of the box.',
   },
   {
     id: 'playground',
     label: 'Playground Module',
-    videoSrc: '',
-    poster: '',
+    videoSrc: '/videos/playground-module.mp4',
+    poster: '/videos/playground-module.jpg',
     caption: 'Blank-canvas debug panel. Populate it entirely at runtime with your own pages and widgets.',
   },
 ]

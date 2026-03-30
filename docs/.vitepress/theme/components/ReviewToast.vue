@@ -19,28 +19,38 @@ const { toastVisible } = useAssetStoreStatus()
 <style scoped>
 .review-toast {
   position: fixed;
-  bottom: var(--space-7);
+  bottom: 0.5rem;
   left: 50%;
   transform: translateX(-50%);
+  max-width: calc(100vw - 1rem);
   z-index: 9999;
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
+  align-items: flex-start;
+  gap: var(--space-2);
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--color-text-secondary);
-  white-space: nowrap;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   pointer-events: none;
+  white-space: normal;
 }
 
 .review-toast__icon {
   font-size: 1rem;
   line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .review-toast {
+    left: 0.5rem;
+    right: 0.5rem;
+    transform: none;
+    max-width: none;
+  }
 }
 
 .toast-enter-active,

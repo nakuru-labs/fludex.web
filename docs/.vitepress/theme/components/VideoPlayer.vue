@@ -1,6 +1,6 @@
 <!-- docs/.vitepress/theme/components/VideoPlayer.vue -->
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 
 const props = defineProps<{
   src: string
@@ -9,45 +9,28 @@ const props = defineProps<{
 
 const videoRef = ref<HTMLVideoElement | null>(null)
 const paused = ref(false)
-const errorMsg = ref('')
+const isMobile = ref(false)
 
-// fires whenever videoRef changes — on mount and on every :key recreation (tab switch)
+onMounted(() => {
+  isMobile.value = window.matchMedia('(max-width: 768px)').matches
+})
+
+// desktop only: watch for tab switches and reload
 watch(videoRef, (el) => {
-  if (!el) return
-
-  // ensure inline playback on all iOS versions
+  if (!el || isMobile.value) return
   el.setAttribute('playsinline', '')
-  el.setAttribute('webkit-playsinline', '')
-
-  // after a short delay, check if autoplay was blocked
   setTimeout(() => {
     if (el.paused) paused.value = true
   }, 500)
 })
 
-function onPlaying() {
-  paused.value = false
-  errorMsg.value = ''
-}
-
-function onPause() {
-  paused.value = true
-}
-
-function onVideoError(e: Event) {
-  const el = e.target as HTMLVideoElement
-  const err = el.error
-  errorMsg.value = err
-    ? `MediaError ${err.code}: ${err.message || '(no message)'}`
-    : 'unknown video error'
-}
+function onPlaying() { paused.value = false }
+function onPause()   { paused.value = true }
 
 function onUserPlay() {
   const el = videoRef.value
   if (!el) return
-  el.play()
-    .then(() => { paused.value = false })
-    .catch((e: Error) => { errorMsg.value = `play() failed: ${e.message}` })
+  el.play().catch(() => {})
 }
 </script>
 
@@ -62,12 +45,26 @@ function onUserPlay() {
       </div>
 
       <div class="video-player__viewport">
-        <!--
-          :key="src" — recreates the element on tab switch so native autoplay
-          fires fresh each time; no programmatic load()/play() calls needed
-        -->
+
+        <!-- mobile: poster + tap opens system player -->
+        <a
+          v-if="isMobile && src"
+          :href="src"
+          target="_blank"
+          rel="noopener"
+          class="video-player__mobile-tap"
+        >
+          <img :src="poster" class="video-player__poster" alt="Video preview" />
+          <span class="video-player__tap-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </a>
+
+        <!-- desktop: autoplay inline -->
         <video
-          v-if="src"
+          v-else-if="src"
           :key="src"
           ref="videoRef"
           class="video-player__video"
@@ -77,19 +74,17 @@ function onUserPlay() {
           muted
           loop
           playsinline
-          webkit-playsinline
           @playing="onPlaying"
           @pause="onPause"
-          @error="onVideoError"
         />
 
         <div v-if="!src" class="video-player__placeholder">
           <span>Video coming soon</span>
         </div>
 
-        <!-- shown when autoplay is blocked -->
+        <!-- desktop: custom play button when autoplay blocked -->
         <button
-          v-if="paused && src"
+          v-if="!isMobile && paused && src"
           class="video-player__play-btn"
           aria-label="Play video"
           @click="onUserPlay"
@@ -99,8 +94,6 @@ function onUserPlay() {
           </svg>
         </button>
 
-        <!-- debug bar: remove before launch -->
-        <div v-if="errorMsg" class="video-player__debug">{{ errorMsg }}</div>
       </div>
     </div>
   </div>
@@ -149,13 +142,45 @@ function onUserPlay() {
   position: relative;
 }
 
+/* mobile tap target */
+.video-player__mobile-tap {
+  display: block;
+  position: relative;
+  line-height: 0;
+}
+
+.video-player__poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-player__tap-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.video-player__mobile-tap:active .video-player__tap-icon {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.video-player__tap-icon svg {
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
+}
+
+/* desktop video */
 .video-player__video {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* custom play button — only shown when autoplay is blocked */
 .video-player__play-btn {
   position: absolute;
   inset: 0;
@@ -175,10 +200,6 @@ function onUserPlay() {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.video-player__play-btn svg {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-}
-
 .video-player__placeholder {
   aspect-ratio: 16 / 9;
   display: flex;
@@ -187,19 +208,5 @@ function onUserPlay() {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--color-text-muted);
-}
-
-.video-player__debug {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 10px;
-  background: rgba(220, 38, 38, 0.9);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  line-height: 1.4;
-  word-break: break-all;
 }
 </style>

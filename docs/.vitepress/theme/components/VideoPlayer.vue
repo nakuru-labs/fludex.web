@@ -1,6 +1,6 @@
 <!-- docs/.vitepress/theme/components/VideoPlayer.vue -->
 <script setup lang="ts">
-import { ref, watch, onMounted, nextTick } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 
 const props = defineProps<{
   src: string
@@ -8,31 +8,25 @@ const props = defineProps<{
 }>()
 
 const videoRef = ref<HTMLVideoElement | null>(null)
-const visible = ref(true)
 
 function tryPlay() {
   const el = videoRef.value
-  if (!el || !props.src) return
+  if (!el) return
   el.load()
-  el.play().catch(() => {
-    // autoplay blocked — user interaction required
-  })
+  if (props.src) {
+    el.play().catch(() => {
+      // autoplay blocked — user interaction required
+    })
+  }
 }
 
 onMounted(() => {
   tryPlay()
 })
 
-watch(
-  () => props.src,
-  async () => {
-    visible.value = false
-    await nextTick()
-    visible.value = true
-    await nextTick()
-    tryPlay()
-  },
-)
+watch(() => props.src, () => {
+  tryPlay()
+})
 </script>
 
 <template>
@@ -45,20 +39,18 @@ watch(
         <span class="titlebar-dot dot-fullscreen" />
       </div>
 
-      <Transition name="fade">
-        <video
-          v-if="visible"
-          ref="videoRef"
-          class="video-player__video glow-behind"
-          :poster="poster || undefined"
-          autoplay
-          muted
-          loop
-          playsinline
-        >
-          <source v-if="src" :src="src" type="video/mp4" />
-        </video>
-      </Transition>
+      <video
+        ref="videoRef"
+        class="video-player__video glow-behind"
+        :poster="poster || undefined"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source v-if="src" :src="src" type="video/mp4" />
+      </video>
+
       <div v-if="!src" class="video-player__placeholder">
         <span>Video coming soon</span>
       </div>
@@ -119,15 +111,5 @@ watch(
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--color-text-muted);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

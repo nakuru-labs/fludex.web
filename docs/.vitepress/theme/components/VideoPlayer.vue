@@ -1,6 +1,6 @@
 <!-- docs/.vitepress/theme/components/VideoPlayer.vue -->
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps<{
   src: string
@@ -9,36 +9,45 @@ const props = defineProps<{
 
 const videoRef = ref<HTMLVideoElement | null>(null)
 const paused = ref(false)
+const errorMsg = ref('')
 
-onMounted(() => {
-  const el = videoRef.value
+// fires whenever videoRef changes — on mount and on every :key recreation (tab switch)
+watch(videoRef, (el) => {
   if (!el) return
 
   // ensure inline playback on all iOS versions
   el.setAttribute('playsinline', '')
   el.setAttribute('webkit-playsinline', '')
 
-  // listen for native play/pause to keep overlay in sync
-  el.addEventListener('playing', () => { paused.value = false })
-  el.addEventListener('pause',   () => { paused.value = true })
-
-  // don't call load() here — autoplay attribute handles initial fetch;
-  // calling load() would interrupt and block autoplay on mobile
-  el.play().catch(() => { paused.value = true })
+  // after a short delay, check if autoplay was blocked
+  setTimeout(() => {
+    if (el.paused) paused.value = true
+  }, 500)
 })
 
-watch(() => props.src, () => {
-  const el = videoRef.value
-  if (!el) return
-  // source changed via tab switch — must reload
-  el.load()
-  el.play().catch(() => { paused.value = true })
-})
+function onPlaying() {
+  paused.value = false
+  errorMsg.value = ''
+}
+
+function onPause() {
+  paused.value = true
+}
+
+function onVideoError(e: Event) {
+  const el = e.target as HTMLVideoElement
+  const err = el.error
+  errorMsg.value = err
+    ? `MediaError ${err.code}: ${err.message || '(no message)'}`
+    : 'unknown video error'
+}
 
 function onUserPlay() {
   const el = videoRef.value
   if (!el) return
-  el.play().catch(() => {})
+  el.play()
+    .then(() => { paused.value = false })
+    .catch((e: Error) => { errorMsg.value = `play() failed: ${e.message}` })
 }
 </script>
 
@@ -53,20 +62,32 @@ function onUserPlay() {
       </div>
 
       <div class="video-player__viewport">
+        <!--
+          :key="src" — recreates the element on tab switch so native autoplay
+          fires fresh each time; no programmatic load()/play() calls needed
+        -->
         <video
+          v-if="src"
+          :key="src"
           ref="videoRef"
           class="video-player__video"
+          :src="src"
           :poster="poster || undefined"
           autoplay
           muted
           loop
           playsinline
           webkit-playsinline
-        >
-          <source v-if="src" :src="src" type="video/mp4" />
-        </video>
+          @playing="onPlaying"
+          @pause="onPause"
+          @error="onVideoError"
+        />
 
-        <!-- shown only when autoplay is blocked -->
+        <div v-if="!src" class="video-player__placeholder">
+          <span>Video coming soon</span>
+        </div>
+
+        <!-- shown when autoplay is blocked -->
         <button
           v-if="paused && src"
           class="video-player__play-btn"
@@ -78,9 +99,8 @@ function onUserPlay() {
           </svg>
         </button>
 
-        <div v-if="!src" class="video-player__placeholder">
-          <span>Video coming soon</span>
-        </div>
+        <!-- debug bar: remove before launch -->
+        <div v-if="errorMsg" class="video-player__debug">{{ errorMsg }}</div>
       </div>
     </div>
   </div>
@@ -167,5 +187,19 @@ function onUserPlay() {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--color-text-muted);
+}
+
+.video-player__debug {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 10px;
+  background: rgba(220, 38, 38, 0.9);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  word-break: break-all;
 }
 </style>

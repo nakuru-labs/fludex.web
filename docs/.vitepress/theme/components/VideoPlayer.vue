@@ -10,38 +10,36 @@ const props = defineProps<{
 const videoRef = ref<HTMLVideoElement | null>(null)
 const paused = ref(false)
 
-function tryPlay() {
+onMounted(() => {
   const el = videoRef.value
   if (!el) return
+
+  // ensure inline playback on all iOS versions
+  el.setAttribute('playsinline', '')
+  el.setAttribute('webkit-playsinline', '')
+
+  // listen for native play/pause to keep overlay in sync
+  el.addEventListener('playing', () => { paused.value = false })
+  el.addEventListener('pause',   () => { paused.value = true })
+
+  // don't call load() here — autoplay attribute handles initial fetch;
+  // calling load() would interrupt and block autoplay on mobile
+  el.play().catch(() => { paused.value = true })
+})
+
+watch(() => props.src, () => {
+  const el = videoRef.value
+  if (!el) return
+  // source changed via tab switch — must reload
   el.load()
-  if (props.src) {
-    el.play()
-      .then(() => { paused.value = false })
-      .catch(() => { paused.value = true })
-  }
-}
+  el.play().catch(() => { paused.value = true })
+})
 
 function onUserPlay() {
   const el = videoRef.value
   if (!el) return
-  el.play()
-    .then(() => { paused.value = false })
-    .catch(() => {})
+  el.play().catch(() => {})
 }
-
-onMounted(() => {
-  // set attributes programmatically for older iOS webkit
-  const el = videoRef.value
-  if (el) {
-    el.setAttribute('playsinline', '')
-    el.setAttribute('webkit-playsinline', '')
-  }
-  tryPlay()
-})
-
-watch(() => props.src, () => {
-  tryPlay()
-})
 </script>
 
 <template>
@@ -57,7 +55,7 @@ watch(() => props.src, () => {
       <div class="video-player__viewport">
         <video
           ref="videoRef"
-          class="video-player__video glow-behind"
+          class="video-player__video"
           :poster="poster || undefined"
           autoplay
           muted
@@ -69,8 +67,13 @@ watch(() => props.src, () => {
         </video>
 
         <!-- shown only when autoplay is blocked -->
-        <button v-if="paused && src" class="video-player__play-btn" aria-label="Play video" @click="onUserPlay">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+        <button
+          v-if="paused && src"
+          class="video-player__play-btn"
+          aria-label="Play video"
+          @click="onUserPlay"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
             <path d="M8 5v14l11-7z" />
           </svg>
         </button>
@@ -132,7 +135,7 @@ watch(() => props.src, () => {
   display: block;
 }
 
-/* custom play button overlay — shown only when autoplay blocked */
+/* custom play button — only shown when autoplay is blocked */
 .video-player__play-btn {
   position: absolute;
   inset: 0;
@@ -141,7 +144,7 @@ watch(() => props.src, () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   border: none;
   cursor: pointer;
   color: #fff;
@@ -149,7 +152,7 @@ watch(() => props.src, () => {
 }
 
 .video-player__play-btn:hover {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .video-player__play-btn svg {

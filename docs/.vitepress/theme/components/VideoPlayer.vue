@@ -8,19 +8,34 @@ const props = defineProps<{
 }>()
 
 const videoRef = ref<HTMLVideoElement | null>(null)
+const paused = ref(false)
 
 function tryPlay() {
   const el = videoRef.value
   if (!el) return
   el.load()
   if (props.src) {
-    el.play().catch(() => {
-      // autoplay blocked — user interaction required
-    })
+    el.play()
+      .then(() => { paused.value = false })
+      .catch(() => { paused.value = true })
   }
 }
 
+function onUserPlay() {
+  const el = videoRef.value
+  if (!el) return
+  el.play()
+    .then(() => { paused.value = false })
+    .catch(() => {})
+}
+
 onMounted(() => {
+  // set attributes programmatically for older iOS webkit
+  const el = videoRef.value
+  if (el) {
+    el.setAttribute('playsinline', '')
+    el.setAttribute('webkit-playsinline', '')
+  }
   tryPlay()
 })
 
@@ -39,20 +54,30 @@ watch(() => props.src, () => {
         <span class="titlebar-dot dot-fullscreen" />
       </div>
 
-      <video
-        ref="videoRef"
-        class="video-player__video glow-behind"
-        :poster="poster || undefined"
-        autoplay
-        muted
-        loop
-        playsinline
-      >
-        <source v-if="src" :src="src" type="video/mp4" />
-      </video>
+      <div class="video-player__viewport">
+        <video
+          ref="videoRef"
+          class="video-player__video glow-behind"
+          :poster="poster || undefined"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+        >
+          <source v-if="src" :src="src" type="video/mp4" />
+        </video>
 
-      <div v-if="!src" class="video-player__placeholder">
-        <span>Video coming soon</span>
+        <!-- shown only when autoplay is blocked -->
+        <button v-if="paused && src" class="video-player__play-btn" aria-label="Play video" @click="onUserPlay">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+
+        <div v-if="!src" class="video-player__placeholder">
+          <span>Video coming soon</span>
+        </div>
       </div>
     </div>
   </div>
@@ -97,10 +122,38 @@ watch(() => props.src, () => {
 .dot-minimize   { background: #febc2e; }
 .dot-fullscreen { background: #28c840; }
 
+.video-player__viewport {
+  position: relative;
+}
+
 .video-player__video {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* custom play button overlay — shown only when autoplay blocked */
+.video-player__play-btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.video-player__play-btn:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.video-player__play-btn svg {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 .video-player__placeholder {

@@ -1,6 +1,6 @@
 <!-- docs/.vitepress/theme/components/VideoPlayer.vue -->
 <script setup lang="ts">
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, onMounted, nextTick } from 'vue'
 
 const props = defineProps<{
   src: string
@@ -10,6 +10,19 @@ const props = defineProps<{
 const videoRef = ref<HTMLVideoElement | null>(null)
 const visible = ref(true)
 
+function tryPlay() {
+  const el = videoRef.value
+  if (!el || !props.src) return
+  el.load()
+  el.play().catch(() => {
+    // autoplay blocked — user interaction required
+  })
+}
+
+onMounted(() => {
+  tryPlay()
+})
+
 watch(
   () => props.src,
   async () => {
@@ -17,12 +30,7 @@ watch(
     await nextTick()
     visible.value = true
     await nextTick()
-    if (videoRef.value && props.src) {
-      videoRef.value.load()
-      videoRef.value.play().catch(() => {
-        // autoplay blocked — user interaction required
-      })
-    }
+    tryPlay()
   },
 )
 </script>
@@ -42,13 +50,14 @@ watch(
           v-if="visible"
           ref="videoRef"
           class="video-player__video glow-behind"
-          :src="src || undefined"
           :poster="poster || undefined"
           autoplay
           muted
           loop
           playsinline
-        />
+        >
+          <source v-if="src" :src="src" type="video/mp4" />
+        </video>
       </Transition>
       <div v-if="!src" class="video-player__placeholder">
         <span>Video coming soon</span>

@@ -11,7 +11,7 @@ export function useAssetStoreStatus() {
   function handleAssetStoreClick(e: MouseEvent): void {
     window.gtag?.('event', 'asset_store_click', {
       event_category: 'engagement',
-      event_label: (e.currentTarget as HTMLElement)?.closest('[data-cta-location]')?.getAttribute('data-cta-location') ?? 'unknown',
+      event_source: (e.currentTarget as HTMLElement)?.closest('[data-cta-location]')?.getAttribute('data-cta-location') ?? 'unknown',
     })
 
     if (!IN_REVIEW) return

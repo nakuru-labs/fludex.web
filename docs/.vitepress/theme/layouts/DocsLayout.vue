@@ -9,7 +9,7 @@ function onDocumentClick(e: MouseEvent) {
   if (!link) return
   window.gtag?.('event', 'asset_store_click', {
     event_category: 'engagement',
-    event_label: 'docs_nav',
+    event_source: 'docs_nav',
   })
 }
 

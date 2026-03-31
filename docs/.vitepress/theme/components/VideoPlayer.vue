@@ -61,22 +61,12 @@ function onFullscreen() {
           playsinline
           @playing="onPlaying"
           @pause="onPause"
+          @click="onFullscreen"
         />
 
         <div v-if="!src" class="video-player__placeholder">
           <span>Video coming soon</span>
         </div>
-
-        <button
-          v-if="src"
-          class="video-player__fullscreen-btn"
-          aria-label="Fullscreen"
-          @click="onFullscreen"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-          </svg>
-        </button>
 
         <button
           v-if="paused && src"
@@ -139,6 +129,7 @@ function onFullscreen() {
   width: 100%;
   height: auto;
   display: block;
+  cursor: pointer;
 }
 
 .video-player__play-btn {
@@ -158,27 +149,6 @@ function onFullscreen() {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.video-player__fullscreen-btn {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-.video-player__viewport:hover .video-player__fullscreen-btn {
-  opacity: 1;
-}
 
 .video-player__placeholder {
   aspect-ratio: 16 / 9;

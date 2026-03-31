@@ -1,6 +1,6 @@
 <!-- docs/.vitepress/theme/components/VideoPlayer.vue -->
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps<{
   src: string
@@ -9,16 +9,11 @@ const props = defineProps<{
 
 const videoRef = ref<HTMLVideoElement | null>(null)
 const paused = ref(false)
-const isMobile = ref(false)
 
-onMounted(() => {
-  isMobile.value = window.matchMedia('(max-width: 768px)').matches
-})
-
-// desktop only: watch for tab switches and reload
 watch(videoRef, (el) => {
-  if (!el || isMobile.value) return
+  if (!el) return
   el.setAttribute('playsinline', '')
+  el.setAttribute('webkit-playsinline', '')
   setTimeout(() => {
     if (el.paused) paused.value = true
   }, 500)
@@ -28,16 +23,13 @@ function onPlaying() { paused.value = false }
 function onPause()   { paused.value = true }
 
 function onUserPlay() {
-  const el = videoRef.value
-  if (!el) return
-  el.play().catch(() => {})
+  videoRef.value?.play().catch(() => {})
 }
 </script>
 
 <template>
   <div class="video-player">
     <div class="video-player__frame">
-      <!-- macOS window chrome -->
       <div class="video-player__titlebar">
         <span class="titlebar-dot dot-close" />
         <span class="titlebar-dot dot-minimize" />
@@ -45,26 +37,8 @@ function onUserPlay() {
       </div>
 
       <div class="video-player__viewport">
-
-        <!-- mobile: poster + tap opens system player -->
-        <a
-          v-if="isMobile && src"
-          :href="src"
-          target="_blank"
-          rel="noopener"
-          class="video-player__mobile-tap"
-        >
-          <img :src="poster" class="video-player__poster" alt="Video preview" />
-          <span class="video-player__tap-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </span>
-        </a>
-
-        <!-- desktop: autoplay inline -->
         <video
-          v-else-if="src"
+          v-if="src"
           :key="src"
           ref="videoRef"
           class="video-player__video"
@@ -82,9 +56,8 @@ function onUserPlay() {
           <span>Video coming soon</span>
         </div>
 
-        <!-- desktop: custom play button when autoplay blocked -->
         <button
-          v-if="!isMobile && paused && src"
+          v-if="paused && src"
           class="video-player__play-btn"
           aria-label="Play video"
           @click="onUserPlay"
@@ -93,7 +66,6 @@ function onUserPlay() {
             <path d="M8 5v14l11-7z" />
           </svg>
         </button>
-
       </div>
     </div>
   </div>
@@ -115,7 +87,6 @@ function onUserPlay() {
   flex-direction: column;
 }
 
-/* macOS title bar */
 .video-player__titlebar {
   flex-shrink: 0;
   height: 20px;
@@ -142,39 +113,6 @@ function onUserPlay() {
   position: relative;
 }
 
-/* mobile tap target */
-.video-player__mobile-tap {
-  display: block;
-  position: relative;
-  line-height: 0;
-}
-
-.video-player__poster {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.video-player__tap-icon {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  transition: background 0.15s ease;
-}
-
-.video-player__mobile-tap:active .video-player__tap-icon {
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.video-player__tap-icon svg {
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
-}
-
-/* desktop video */
 .video-player__video {
   width: 100%;
   height: auto;
@@ -184,8 +122,6 @@ function onUserPlay() {
 .video-player__play-btn {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -17,7 +17,3 @@ Initial release.
 - Descriptor-based module discovery from `Resources/FludeX/Modules/`
 - Reflection-based DI container
 - 5 samples: GettingStarted, WidgetsBook, CustomModule, WidgetsShowcase, WidgetElementsShowcase
-
-**Known issues**
-
-- Android builds fail on Unity 2021.3 due to an App UI dependency conflict. See [Troubleshooting → Android build fails — `cannot find symbol UnityPlayerGameActivity`](/guide/troubleshooting#android-build-fails-cannot-find-symbol-unityplayergameactivity).

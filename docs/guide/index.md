@@ -21,7 +21,7 @@ FludeX uses a modular architecture — each module is independently scoped with 
 
 ## Requirements
 
-- Unity **2021.3.0f1** or later
+- Unity **2022.3** or later
 
 ## Dependencies
 

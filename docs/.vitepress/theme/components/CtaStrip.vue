@@ -14,7 +14,7 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
         <span class="heading"> Add FludeX to your project.</span>
       </h2>
       <p class="cta-strip__sub">
-        Available now on the Unity Asset Store. Requires Unity 2021.3.0f1 or later.
+        Available now on the Unity Asset Store. Requires Unity 2022.3 or later.
       </p>
       <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="cta-strip__button" data-cta-location="cta_strip" @click="handleAssetStoreClick">Get FludeX on Asset Store</a>
     </div>

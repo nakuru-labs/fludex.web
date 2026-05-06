@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 // Flip to false when the asset is live on the store — all buttons will work normally
-const IN_REVIEW = true
+const IN_REVIEW = false
 
 const toastVisible = ref(false)
 let dismissTimer: ReturnType<typeof setTimeout> | null = null

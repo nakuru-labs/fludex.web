@@ -20,6 +20,7 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
       </p>
       <div class="hero__actions">
         <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="hero__cta" data-cta-location="hero" @click="handleAssetStoreClick">Get FludeX on Asset Store</a>
+        <a href="/demo" class="hero__ghost">Try WebGL Demo</a>
         <a href="/guide/" class="hero__secondary">Read the docs →</a>
       </div>
     </div>
@@ -99,6 +100,25 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
 .hero__cta:hover {
   background: var(--color-accent-light);
   color: var(--color-bg);
+  transform: translateY(-1px);
+}
+
+.hero__ghost {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.hero__ghost:hover {
+  background: rgba(107, 92, 231, 0.12);
+  color: var(--color-text-primary);
   transform: translateY(-1px);
 }
 

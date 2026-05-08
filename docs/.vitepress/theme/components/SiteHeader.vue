@@ -12,6 +12,7 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
       <SiteLogo />
       <nav class="site-header__nav">
         <a href="/guide/" class="site-header__link">Docs</a>
+        <a href="/demo" class="site-header__link">Demo</a>
         <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="site-header__link site-header__link--cta" data-cta-location="header" @click="handleAssetStoreClick">Asset Store</a>
       </nav>
     </div>

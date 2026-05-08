@@ -4,6 +4,7 @@ import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import PromoLayout from './layouts/PromoLayout.vue'
 import DocsLayout from './layouts/DocsLayout.vue'
+import WebGLDemoLayout from './layouts/WebGLDemoLayout.vue'
 import './styles/tokens.css'
 import './styles/base.css'
 
@@ -13,6 +14,9 @@ export default {
     const { frontmatter } = useData()
     if (frontmatter.value.layout === 'promo') {
       return h(PromoLayout)
+    }
+    if (frontmatter.value.layout === 'webgl-demo') {
+      return h(WebGLDemoLayout)
     }
     return h(DocsLayout)
   },

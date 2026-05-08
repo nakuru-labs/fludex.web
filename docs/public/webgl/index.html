@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>FludeX WebGL Demo</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #141414;
+        overflow: hidden;
+      }
+
+      #unity-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      #unity-canvas {
+        width: 100%;
+        height: 100%;
+        background: #141414;
+        display: block;
+      }
+
+      /* Loading overlay */
+      #unity-loading-bar {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background: #141414;
+      }
+
+      #unity-loading-bar.visible {
+        display: flex;
+      }
+
+      #unity-loading-label {
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8b8a9e;
+      }
+
+      #unity-progress-track {
+        width: 200px;
+        height: 3px;
+        background: rgba(107, 92, 231, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      #unity-progress-bar-full {
+        height: 100%;
+        width: 0%;
+        background: #6b5ce7;
+        border-radius: 2px;
+        transition: width 0.15s ease;
+      }
+
+      /* Warning */
+      #unity-warning {
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.4);
+        color: #ef4444;
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        padding: 8px 14px;
+        border-radius: 6px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="unity-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-loading-label">Loading FludeX Demo…</div>
+        <div id="unity-progress-track">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"></div>
+    </div>
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      function unityShowBanner(msg, type) {
+        warningBanner.textContent = msg;
+        warningBanner.style.display = 'block';
+        if (type !== 'error') {
+          setTimeout(function() {
+            warningBanner.style.display = 'none';
+          }, 5000);
+        }
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/webgl.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/webgl.data.br",
+        frameworkUrl: buildUrl + "/webgl.framework.js.br",
+        codeUrl: buildUrl + "/webgl.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Nakuru.FludeX.Core",
+        productVersion: "1.105.0.0",
+        showBanner: unityShowBanner,
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.head.appendChild(meta);
+      }
+
+      loadingBar.classList.add("visible");
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.classList.remove("visible");
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

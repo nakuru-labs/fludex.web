@@ -121,15 +121,14 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/webgl.loader.js";
       var config = {
-        dataUrl: buildUrl + "/webgl.data.br",
-        frameworkUrl: buildUrl + "/webgl.framework.js.br",
-        codeUrl: buildUrl + "/webgl.wasm.br",
+        dataUrl: buildUrl + "/webgl.data.unityweb",
+        frameworkUrl: buildUrl + "/webgl.framework.js.unityweb",
+        codeUrl: buildUrl + "/webgl.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Nakuru.FludeX.Core",
         productVersion: "1.105.0.0",
         showBanner: unityShowBanner,
-        decompressionFallback: true,
       };
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -148,6 +147,8 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.classList.remove("visible");
+          window.dispatchEvent(new Event('resize'));
+          setTimeout(() => window.dispatchEvent(new Event('resize')), 200);
         }).catch((message) => {
           alert(message);
         });

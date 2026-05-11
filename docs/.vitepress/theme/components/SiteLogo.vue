@@ -1,6 +1,6 @@
 <!-- docs/.vitepress/theme/components/SiteLogo.vue -->
 <script setup lang="ts">
-defineProps<{ linked?: boolean }>()
+const props = withDefaults(defineProps<{ linked?: boolean }>(), { linked: true })
 </script>
 
 <template>
@@ -20,6 +20,7 @@ defineProps<{ linked?: boolean }>()
   align-items: center;
   gap: 5px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .site-logo__mark {

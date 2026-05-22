@@ -1,5 +1,10 @@
 ---
-title: Core
+title: Core Package
+description: FludeX Core — the panel engine, gesture trigger system, WidgetsBook widget library, and module discovery API for building runtime debug tools in Unity.
+head:
+  - - meta
+    - name: keywords
+      content: FludeX core, Unity debug panel engine, Unity UI Toolkit widgets, Unity gesture trigger debug, runtime module API Unity, Unity debug widget library
 ---
 
 # Core

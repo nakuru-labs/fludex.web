@@ -12,7 +12,7 @@ FludeX modules are independent UPM packages that extend the debug panel with add
 |---|---|---|
 | [Overview Module](/modules/overview/) | Available | Pre-built diagnostic dashboard with System, Display, Build, and Runtime tabs |
 | [Playground Module](/modules/playground/) | Available | Blank-canvas panel you populate entirely at runtime |
-| [Console Module](/modules/console/) | Coming soon | In-game log console |
+| [Console Module](/modules/console/) | Available | Full-featured runtime log viewer with filtering, search, and copy support |
 
 ## Building Your Own
 

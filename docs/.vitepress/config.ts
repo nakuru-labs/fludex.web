@@ -7,9 +7,14 @@ const gaId = env.VITE_GA_ID
 
 export default defineConfig({
   title: 'FludeX',
-  description: 'Modular in-game runtime debug panel for Unity.',
+  titleTemplate: ':title | FludeX — Unity Runtime Debug Panel',
+  description: 'FludeX is a modular runtime debug panel for Unity — gesture-triggered, built on UI Toolkit. Add an in-game debug console, runtime inspector, and live controls to any Unity project without rebuilding.',
   base: '/',
   appearance: 'force-dark',
+
+  sitemap: {
+    hostname: 'https://fludex.dev',
+  },
 
   head: [
     // Fonts
@@ -28,17 +33,43 @@ export default defineConfig({
         href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap',
       },
     ],
+    // SEO
+    ['meta', { name: 'keywords', content: 'Unity debug panel, Unity runtime debug, in-game console Unity, Unity debug console, Unity UI Toolkit debug, Unity debug overlay, runtime debug tool Unity, Unity developer tools, in-game debug tool, Unity game debugging, Unity mobile debug, debug panel Unity asset, UIToolkit runtime debug' }],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    ['meta', { name: 'author', content: 'FludeX' }],
+    // JSON-LD structured data
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'FludeX',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Windows, macOS, iOS, Android, WebGL',
+      description: 'Modular runtime debug panel for Unity — gesture-triggered in-game debug console, runtime inspector, and live widget controls. Built on UI Toolkit and AppUI.',
+      url: 'https://fludex.dev',
+      image: 'https://fludex.dev/og.png',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: 'https://u3d.as/3TW4',
+      },
+      keywords: 'Unity debug panel, in-game debug console, Unity runtime debug, UI Toolkit debug tool',
+      softwareVersion: '1.1.1',
+      releaseNotes: 'https://fludex.dev/core/changelog',
+      documentation: 'https://fludex.dev/guide/',
+    })],
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'FludeX' }],
-    ['meta', { property: 'og:title', content: 'FludeX — Runtime Debug Tool for Unity' }],
-    ['meta', { property: 'og:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, device-native, and built to extend.' }],
+    ['meta', { property: 'og:title', content: 'FludeX — Runtime Debug Panel for Unity' }],
+    ['meta', { property: 'og:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, UI Toolkit-based, with a runtime console, inspector, and live widget controls.' }],
     ['meta', { property: 'og:image', content: 'https://fludex.dev/og.png' }],
     ['meta', { property: 'og:url', content: 'https://fludex.dev' }],
     // Twitter / X
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: 'FludeX — Runtime Debug Tool for Unity' }],
-    ['meta', { name: 'twitter:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, device-native, and built to extend.' }],
+    ['meta', { name: 'twitter:title', content: 'FludeX — Runtime Debug Panel for Unity' }],
+    ['meta', { name: 'twitter:description', content: 'Modular in-game debug panel for Unity. Gesture-triggered, UI Toolkit-based, with a runtime console, inspector, and live widget controls.' }],
     ['meta', { name: 'twitter:image', content: 'https://fludex.dev/og.png' }],
     // Google Analytics
     ...(gaId

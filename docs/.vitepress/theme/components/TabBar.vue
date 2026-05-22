@@ -22,7 +22,6 @@ const emit = defineEmits<{
       role="tab"
       :aria-selected="tab.id === activeId"
       @click="emit('select', tab.id)"
-      @mouseenter="emit('select', tab.id)"
     >
       {{ tab.label }}
     </button>

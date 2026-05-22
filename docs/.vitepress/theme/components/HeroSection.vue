@@ -13,15 +13,22 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
         <span class="accent">Debug at runtime.</span><br />
         <span class="heading">Full control. Zero clutter.</span>
       </h1>
+
       <p class="hero__subline">
         FludeX is a modular runtime debug panel for Unity. Describe your controls
         in code, get a fully-rendered debug UI with live data binding — no views
         to implement, no prefabs to wire up.
       </p>
+
       <div class="hero__actions">
         <a href="https://u3d.as/3TW4" target="_blank" rel="noopener" class="hero__cta" data-cta-location="hero" @click="handleAssetStoreClick">Get FludeX on Asset Store</a>
         <a href="/demo" class="hero__ghost">Try WebGL Demo</a>
         <a href="/guide/" class="hero__secondary">Read the docs →</a>
+      </div>
+
+      <div class="hero__image-wrap">
+        <img src="/hero-promo.png" alt="FludeX modules — Overview, Playground, and Console panels" class="hero__image" />
+        <img src="/console-demo.gif" alt="" class="hero__console-gif" aria-hidden="true" />
       </div>
     </div>
   </section>
@@ -29,7 +36,7 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
 
 <style scoped>
 .hero {
-  padding: var(--space-10) var(--space-6) var(--space-9);
+  padding: var(--space-10) var(--space-6) 0;
 }
 
 .hero__inner {
@@ -136,6 +143,30 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
 }
 
 
+
+.hero__image-wrap {
+  width: 80%;
+  max-width: 960px;
+  margin-top: var(--space-1);
+  position: relative;
+}
+
+.hero__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+.hero__console-gif {
+  position: absolute;
+  left: 35.94%;
+  top: 9%;
+  width: 29.2%;
+  height: auto;
+  clip-path: inset(0 round 5%);
+  pointer-events: none;
+}
 
 @media (max-width: 640px) {
   .hero {

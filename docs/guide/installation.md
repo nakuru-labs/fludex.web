@@ -1,5 +1,10 @@
 ---
 title: Installation
+description: How to install FludeX in your Unity project via UPM scoped registry. Step-by-step setup for the runtime debug panel and its modules.
+head:
+  - - meta
+    - name: keywords
+      content: FludeX installation, Unity UPM debug package, install Unity debug panel, Unity scoped registry, runtime debug tool setup Unity
 ---
 
 # Installation

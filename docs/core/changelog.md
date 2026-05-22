@@ -4,6 +4,29 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.1.1 — 2026-05-26
+
+### Fixed
+
+- Unity built-in debug console is showing automatically on error overlapping the FludeX
+
+---
+
+## 1.1.0 — 2026-05-25
+
+### Added
+
+- `ButtonResult` struct and Toast feedback for button actions — success, failure, and unhandled exceptions each surface the appropriate notification
+- Void button overloads (`Action`, `Func<Task>`) — complete silently with no Toast unless an exception is thrown
+- `FludexConfig.Widgets` — new `WidgetsConfig` to control built-in widget behaviors, starting with `ButtonResultToast` and `ButtonExceptionToast` flags
+- `IConfigurableModule` — modules can now expose a settings view by implementing `GetConfigurationView()`; a settings button appears in the app bar and opens a bottom tray with the module's configuration UI
+
+### Fixed
+
+- Drawer partially visible on first launch when in closed state
+
+---
+
 ## 1.0.0
 
 Initial release.

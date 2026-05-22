@@ -1,5 +1,10 @@
 ---
 title: Introduction
+description: Learn what FludeX is — a modular runtime debug panel for Unity built on UI Toolkit. Explore modules, requirements, and how to get started with in-game debugging.
+head:
+  - - meta
+    - name: keywords
+      content: FludeX introduction, Unity runtime debug panel, Unity UI Toolkit debug tool, in-game debug panel Unity, Unity developer tools overview
 ---
 
 # Introduction
@@ -17,7 +22,7 @@ FludeX uses a modular architecture — each module is independently scoped with 
 | **Core** | Panel engine, gesture trigger, WidgetsBook widget library, descriptor-based module discovery, and reflection-based DI container |
 | **Overview Module** | Pre-built diagnostic dashboard with System, Display, Build, and Runtime tabs |
 | **Playground Module** | Blank-canvas debug panel you populate entirely at runtime |
-| **Console Module** | *(Coming in a future update)* |
+| **Console Module** | Full-featured runtime log viewer with filtering, search, and copy support |
 
 ## Requirements
 

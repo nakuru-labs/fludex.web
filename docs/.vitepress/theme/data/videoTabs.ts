@@ -23,4 +23,11 @@ export const videoTabs: VideoTab[] = [
     poster: '/videos/playground-module.jpg',
     caption: 'Blank-canvas debug panel. Populate it entirely at runtime with your own pages and widgets.',
   },
+  {
+    id: 'console',
+    label: 'Console Module',
+    videoSrc: '/videos/console-module.mp4',
+    poster: '/videos/console-module.png',
+    caption: 'Full-featured runtime log viewer — real-time capture, filtering, search, and copy support.',
+  },
 ]

@@ -1,5 +1,10 @@
 ---
 title: Quick Start
+description: Get FludeX running in minutes — add the prefab, configure your first module, and open the in-game debug panel in your Unity project.
+head:
+  - - meta
+    - name: keywords
+      content: FludeX quick start, Unity debug panel setup, Unity in-game debug tutorial, runtime debug panel Unity, Unity UIToolkit debug getting started
 ---
 
 # Quick Start
@@ -34,3 +39,4 @@ That's it. The default setup activates both the tap trigger (triple-tap, bottom-
 - [WidgetsBook](/core/widgets-book) — build a custom debug panel with widgets
 - [Overview Module](/modules/overview/) — explore the pre-built diagnostic dashboard
 - [Playground Module](/modules/playground/) — populate a blank panel at runtime
+- [Console Module](/modules/console/) — view Unity logs on device in real time

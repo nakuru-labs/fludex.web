@@ -1,5 +1,10 @@
 ---
 title: Overview Module
+description: FludeX Overview — a pre-built runtime diagnostic dashboard for Unity with System, Display, Build, and Runtime info tabs. No configuration required.
+head:
+  - - meta
+    - name: keywords
+      content: Unity runtime diagnostics, Unity system info panel, Unity debug dashboard, Unity build info runtime, Unity display info debug, runtime stats panel Unity
 ---
 
 # Overview Module

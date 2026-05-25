@@ -1,5 +1,10 @@
 ---
 title: Playground Module
+description: FludeX Playground — a blank-canvas runtime debug panel for Unity. Add sliders, toggles, buttons, and text fields programmatically to control your game at runtime.
+head:
+  - - meta
+    - name: keywords
+      content: Unity runtime controls, Unity debug widgets, Unity runtime sliders toggles, Unity in-game controls panel, Unity debug playground, runtime widget panel Unity
 ---
 
 # Playground Module

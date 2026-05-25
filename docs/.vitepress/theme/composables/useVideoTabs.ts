@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import { videoTabs, type VideoTab } from '../data/videoTabs'
 
 export function useVideoTabs() {
-  const activeIndex = ref(0)
+  const activeIndex = ref(videoTabs.findIndex((t) => t.id === 'console'))
 
   const activeTab = computed<VideoTab>(() => videoTabs[activeIndex.value])
 

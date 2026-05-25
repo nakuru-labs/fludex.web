@@ -12,15 +12,15 @@ const paused = ref(false)
 
 watch(videoRef, (el) => {
   if (!el) return
-  el.setAttribute('playsinline', '')
-  el.setAttribute('webkit-playsinline', '')
-  setTimeout(() => {
-    if (el.paused) paused.value = true
-  }, 500)
+  el.play().catch(() => { paused.value = true })
 })
 
 function onPlaying() { paused.value = false }
 function onPause()   { paused.value = true }
+
+function onCanPlay() {
+  videoRef.value?.play().catch(() => { paused.value = true })
+}
 
 function onUserPlay() {
   videoRef.value?.play().catch(() => {})
@@ -59,6 +59,8 @@ function onFullscreen() {
           muted
           loop
           playsinline
+          webkit-playsinline
+          @canplay="onCanPlay"
           @playing="onPlaying"
           @pause="onPause"
           @click="onFullscreen"

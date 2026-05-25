@@ -4,7 +4,7 @@ title: Samples
 
 # Samples
 
-Import samples via **Package Manager → FludeX → Samples tab**.
+Import samples via **Package Manager → [package name] → Samples tab**.
 
 | # | Package | Sample | What it covers |
 |---|---|---|---|
@@ -17,3 +17,4 @@ Import samples via **Package Manager → FludeX → Samples tab**.
 | 07 | Playground Module | Getting Started | Get the Playground module and add a page with a toggle and a button |
 | 08 | Overview Module | Showcase | Realistic project widgets — session info, user profile, and build metadata — with live data binding |
 | 09 | Playground Module | Showcase | Realistic game cheat panel — economy controls, world state, localization, and feature flags — with live data binding |
+| 10 | Console Module | ConsoleShowcase | Fires random Debug.Log, LogWarning, and LogError messages on start and at a configurable interval so you can see the console module in action |

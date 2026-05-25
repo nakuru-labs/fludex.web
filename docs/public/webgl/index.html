@@ -119,15 +119,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/webgl.loader.js";
+      var loaderUrl = buildUrl + "/fludex-demo.loader.js";
       var config = {
-        dataUrl: buildUrl + "/webgl.data.unityweb",
-        frameworkUrl: buildUrl + "/webgl.framework.js.unityweb",
-        codeUrl: buildUrl + "/webgl.wasm.unityweb",
+        dataUrl: buildUrl + "/fludex-demo.data.unityweb",
+        frameworkUrl: buildUrl + "/fludex-demo.framework.js.unityweb",
+        codeUrl: buildUrl + "/fludex-demo.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Nakuru.FludeX.Core",
-        productVersion: "1.105.0.0",
+        productName: "FludeX.AssetStore.Publish",
+        productVersion: "1.1.0",
         showBanner: unityShowBanner,
       };
 
@@ -147,6 +147,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.classList.remove("visible");
+          canvas.focus();
           window.dispatchEvent(new Event('resize'));
           setTimeout(() => window.dispatchEvent(new Event('resize')), 200);
         }).catch((message) => {

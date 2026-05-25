@@ -24,7 +24,7 @@ import BokehBackground from '../components/BokehBackground.vue'
         </div>
         <p class="demo-hint">
           <span class="demo-hint__icon">👆</span>
-          Triple-tap the trigger button at the bottom center of the screen to open the debug panel.
+          <span>Triple-tap the trigger at the bottom center of the screen, or press <kbd>`</kbd> to show / hide the debug panel. Select a log and press <kbd>Ctrl+C</kbd> / <kbd>Cmd+C</kbd> to copy it.</span>
         </p>
         <div class="demo-player">
           <iframe
@@ -110,6 +110,7 @@ import BokehBackground from '../components/BokehBackground.vue'
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   aspect-ratio: 16 / 9;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .demo-iframe {
@@ -130,8 +131,12 @@ import BokehBackground from '../components/BokehBackground.vue'
   padding: var(--space-3) var(--space-5);
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-3);
+}
+
+.demo-hint span:last-child {
+  line-height: 1.6;
 }
 
 .demo-hint__icon {

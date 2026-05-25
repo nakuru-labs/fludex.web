@@ -181,4 +181,10 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
     font-size: 1rem;
   }
 }
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .hero__image-wrap {
+    width: 130%;
+  }
+}
 </style>

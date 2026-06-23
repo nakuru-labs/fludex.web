@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(npx vitepress *)",
+      "Bash(lsof -iTCP -sTCP:LISTEN -n -P)",
+      "Bash(rtk read *)",
+      "Bash(rtk npm *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(rtk grep *)",
+      "Bash(rtk ls *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(kill 30793)"
+    ]
+  }
+}

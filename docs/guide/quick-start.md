@@ -26,6 +26,8 @@ That's it. The default setup activates both the tap trigger (triple-tap, bottom-
 |---|---|
 | `Initialize()` | Set up FludeX with the default composite trigger (tap + keyboard) — call once before anything else |
 | `Initialize(trigger)` | Set up FludeX with a custom trigger — pass any `IFludexTrigger` implementation |
+| `Initialize(moduleConfigs)` | Set up FludeX and pass one or more `IModuleConfiguration<TModule>` objects to pre-configure individual modules |
+| `Prepare()` | Run the prepare lifecycle phase — call after `Initialize()` and before the first frame |
 | `Show()` | Show the debug panel |
 | `Hide()` | Hide the debug panel |
 | `Toggle()` | Show if hidden, hide if shown |

@@ -4,6 +4,16 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.2.0
+
+### Added
+
+- `IModuleConfiguration<TModule>` — typed configuration interface; pass one or more module config objects directly to `FludeX.Initialize()`
+- `Prepare()` — new lifecycle phase called after `Initialize()` and before the first frame, allowing modules to complete pre-show setup
+- `FludexModuleDescriptor.Version` — version string exposed on each module descriptor and shown in the module settings panel
+
+---
+
 ## 1.1.1 — 2026-05-26
 
 ### Fixed

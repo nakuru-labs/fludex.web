@@ -18,7 +18,7 @@ All other FludeX packages depend on Core.
 - **Panel engine** — manages the panel lifecycle: show, hide, toggle, dispose
 - **Trigger system** — tap trigger, keyboard trigger, composite trigger, and a `FludexNoTrigger` for manual control
 - **WidgetsBook** — declarative widget library for composing debug panels with live data binding
-- **Module discovery** — loads `FludexModuleDescriptor` assets from `Resources/FludeX/Modules/` at startup
+- **Module discovery** — loads `FludexModuleDescriptor` assets from `Resources/FludeX/Modules/` at startup; each descriptor exposes a `Version` field shown in the module settings panel
 - **DI container** — reflection-based dependency injection used internally by modules
 
 ## Panel Control API
@@ -29,6 +29,8 @@ All other FludeX packages depend on Core.
 | `Initialize(config)` | Set up FludeX with a custom `FludexConfig` (e.g. a different initial module index) |
 | `Initialize(trigger)` | Set up FludeX with a custom `IFludexTrigger` implementation |
 | `Initialize(config, trigger)` | Set up FludeX with both a custom config and a custom trigger |
+| `Initialize(moduleConfigs)` | Set up FludeX and pass one or more `IModuleConfiguration<TModule>` objects to pre-configure individual modules |
+| `Prepare()` | Run the prepare lifecycle phase — called after `Initialize()` and before the first frame to allow modules to complete pre-show setup |
 | `Show()` | Show the debug panel |
 | `Hide()` | Hide the debug panel |
 | `Toggle()` | Show if hidden, hide if shown |

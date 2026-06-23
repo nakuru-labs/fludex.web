@@ -4,6 +4,18 @@ title: Changelog
 
 # Console Module — Changelog
 
+## 1.1.0
+
+### Added
+
+- **Tags** — log messages prefixed with `[TAG]:` are parsed and displayed as color-coded chips in the log list and detail view
+- **Multiple tags per message** — stack tags before the message (e.g. `[UI][PERF]: message`); each is shown as its own chip
+- **Per-tag color overrides** — assign custom colors to tag names via `ConsoleModuleConfiguration.TagColors`
+- **Custom tag format** — configurable tag prefix, suffix, and separator via `ConsoleModuleConfiguration.TagFormat`
+- **Configurable timestamp** — detail pane and optional history list show game time or device time, with optional milliseconds
+
+---
+
 ## 1.0.1 — 2026-05-26
 
 ### Fixed

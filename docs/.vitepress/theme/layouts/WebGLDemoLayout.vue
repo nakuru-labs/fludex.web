@@ -105,7 +105,7 @@ import BokehBackground from '../components/BokehBackground.vue'
 /* Player */
 .demo-player {
   width: 100%;
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--color-border);
   background: var(--color-surface);

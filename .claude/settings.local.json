@@ -11,7 +11,9 @@
       "Bash(rtk grep *)",
       "Bash(rtk ls *)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(kill 30793)"
+      "Bash(kill 30793)",
+      "Bash(rtk curl *)",
+      "Bash(npm run docs:dev -- --port 5173 &> /tmp/vitepress.log & *)"
     ]
   }
 }

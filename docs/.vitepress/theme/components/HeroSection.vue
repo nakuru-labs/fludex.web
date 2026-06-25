@@ -28,7 +28,16 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
 
       <div class="hero__image-wrap">
         <img src="/hero-promo.png" alt="FludeX modules — Overview, Playground, and Console panels" class="hero__image" />
-        <img src="/console-demo.gif" alt="" class="hero__console-gif" aria-hidden="true" />
+        <video
+          class="hero__console-gif"
+          src="/console-demo.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          aria-hidden="true"
+        />
       </div>
     </div>
   </section>
@@ -156,6 +165,11 @@ const { handleAssetStoreClick } = useAssetStoreStatus()
   height: auto;
   display: block;
   border-radius: var(--radius-md);
+  border: none;
+}
+
+.hero__console-gif {
+  border: none;
 }
 
 .hero__console-gif {

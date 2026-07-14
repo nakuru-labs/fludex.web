@@ -24,35 +24,37 @@ private void Awake()
 
 That's all. The console module is drop-in — it self-registers via its `FludexModuleDescriptor` asset.
 
-To pass a configuration, supply a `ConsoleModuleConfiguration` to `Initialize()`:
+To pass a configuration, supply a `ConsoleModuleConfiguration` to `Initialize()`. Every property is optional — omit any of them to keep its built-in default:
 
 ```csharp
 private void Awake()
 {
     FludeX.Instance.Initialize(new ConsoleModuleConfiguration
     {
-        TagColors = new Dictionary<string, Color>
+        TagColors = new Dictionary<string, Color32>
         {
-            { "UI",   Color.cyan  },
-            { "PERF", Color.yellow }
+            ["UI"]   = new Color32(0, 200, 255, 255),
+            ["PERF"] = new Color32(255, 210, 0, 255)
         },
-        TagFormat = new ConsoleTagFormat
+        TagFormat = new ConsoleTagFormat("[", "]", ":"),
+        Timestamp = new ConsoleTimestampConfiguration
         {
-            Prefix    = "[",
-            Suffix    = "]",
-            Separator = ":"
+            Mode             = TimeDisplayMode.DeviceTime,
+            ShowMilliseconds = true,
+            ShowInList       = false
+        },
+        DefaultRules = new[]
+        {
+            new FludexConsoleAlertRule(
+                Id: "uncaught-exceptions",
+                Name: "Uncaught Exceptions",
+                Severity: AlertSeverity.Exception,
+                TextPattern: "Exception",
+                IsEnabled: true)
         }
     });
 }
 ```
-
-## Explore Features
-
-- **[Tags](./features/tags)** — parse `[TAG]:` prefixes into color-coded chips, with per-tag color and format overrides
-- **[Filtering](./features/filtering)** — log level toggles, collapse, and a search grammar with tag and AND qualifiers
-- **[Alerting](./features/alerting)** — define rules that toast-notify the moment a matching log appears
-- **[Detailed View](./features/detailed-view)** — a resizable pane with the full message, stack trace, and timestamp
-- **[Sharing](./features/sharing)** — copy any log to the clipboard via long-press, keyboard shortcut, or menu
 
 ## Features
 
@@ -85,15 +87,17 @@ Runtime settings (adjustable from the tray):
 - Timestamp source — game time or device time
 - Milliseconds display in timestamps
 
-Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()`):
+Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()`, all optional):
 
-- `TagColors` — `Dictionary<string, Color>` mapping tag names to custom colors
-- `TagFormat` — `ConsoleTagFormat` with `Prefix`, `Suffix`, and `Separator` controlling how tags are parsed from log messages
+- `TagColors` — `IReadOnlyDictionary<string, Color32>` mapping tag names to custom colors. See [Tags](./features/tags)
+- `TagFormat` — `ConsoleTagFormat` struct (`TagPrefix`, `TagSuffix`, `EndSeparator`) controlling how tags are parsed from log messages. See [Tags](./features/tags)
+- `Timestamp` — `ConsoleTimestampConfiguration` with `Mode`, `ShowMilliseconds`, and `ShowInList`; each is applied only if the player has no saved preference yet (first launch). See [Detailed View](./features/detailed-view)
+- `DefaultRules` — starter list of `FludexConsoleAlertRule`s, seeded only on first launch — never overwrites rules the player has since created, edited, or removed. See [Alerting](./features/alerting)
 
 ## Requirements
 
 - Unity **2022.3** or later
-- `com.nakuru.fludex` **1.2.0**
+- `com.nakuru.fludex` **1.3.0**
 
 ## Installation
 

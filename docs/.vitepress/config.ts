@@ -55,7 +55,7 @@ export default defineConfig({
         url: 'https://u3d.as/3TW4',
       },
       keywords: 'Unity debug panel, in-game debug console, Unity runtime debug, UI Toolkit debug tool',
-      softwareVersion: '1.1.1',
+      softwareVersion: '1.3.0',
       releaseNotes: 'https://fludex.dev/core/changelog',
       documentation: 'https://fludex.dev/guide/',
     })],

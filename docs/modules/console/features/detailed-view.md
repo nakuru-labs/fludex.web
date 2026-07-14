@@ -11,7 +11,7 @@ head:
 
 Tap any log row to open the detail pane — a resizable split view along the bottom of the console showing the full message and stack trace, without truncation.
 
-<!-- TODO: demo video/gif -->
+<img src="/console/log-detailed.jpg" alt="Console detail pane showing timestamp, tag chips, full message, and stack trace" width="640" height="160" style="display: block; margin: 0 auto;" />
 
 ## What It Shows
 
@@ -34,8 +34,8 @@ The menu is suppressed if the pane is resized below a small height threshold, to
 
 The detail pane always shows a timestamp for the selected log, in one of two modes (configurable in settings):
 
-- **Game Time** (default) — elapsed time since the app started, formatted `[MM:SS]` or `[MM:SS.mmm]`
-- **Device Time** — wall-clock time the log was received, formatted `[HH:mm:ss]` or `[HH:mm:ss.fff]`
+- **Game Time** (default) — elapsed time since the app started, shown as `[minutes:seconds]` or `[minutes:seconds.milliseconds]` (e.g. `[04:12]` or `[04:12.227]`); minutes are a plain elapsed count, not clock-wrapped, so long sessions show values like `[125:07]`
+- **Device Time** — wall-clock time the log was received, formatted with the standard `HH:mm:ss` / `HH:mm:ss.fff` pattern (e.g. `[14:32:07]` or `[14:32:07.227]`)
 
 Milliseconds can be toggled independently of the mode.
 

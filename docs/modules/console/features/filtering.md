@@ -11,7 +11,7 @@ head:
 
 Narrow down the log list with level toggles, duplicate collapsing, and a small search grammar that goes beyond plain substring matching.
 
-<!-- TODO: demo video/gif -->
+<img src="/console/filtering.jpg" alt="Console filter bar with clear, collapse, search, and Info/Warning/Error count toggles" width="640" height="127" style="display: block; margin: 0 auto;" />
 
 ## Log Levels
 

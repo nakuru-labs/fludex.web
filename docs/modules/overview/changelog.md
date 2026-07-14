@@ -4,6 +4,19 @@ title: Changelog
 
 # Overview Module — Changelog
 
+## 1.0.3 — 2026-07-06
+
+- Bumped Core dependency to 1.3.0
+- Updated `com.unity.dt.app-ui` dependency to 2.1.11
+
+---
+
+## 1.0.2 — 2026-06-25
+
+- Bumped Core dependency to 1.2.0
+
+---
+
 ## 1.0.1 — 2026-05-25
 
 - Bumped Core dependency to 1.1.0

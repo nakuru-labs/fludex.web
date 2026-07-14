@@ -16,7 +16,18 @@
       "Bash(npm run docs:dev -- --port 5173 &> /tmp/vitepress.log & *)",
       "Bash(kill 23862)",
       "Bash(rtk find *)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(rtk git *)",
+      "Bash(rtk proxy *)",
+      "Bash(sips -g pixelWidth -g pixelHeight docs/public/console/tags.png)",
+      "Bash(python3 -c ' *)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g dpiWidth -g dpiHeight \"/Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Projects/fludex.web/docs/public/console/tags.jpg\")",
+      "Bash(sips -g pixelWidth -g pixelHeight -g dpiWidth -g dpiHeight \"/Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Projects/fludex.web/docs/public/console/tags.png\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Projects/fludex.web/docs/public/console/filtering.jpg\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Projects/fludex.web/docs/public/console/log-detailed.jpg\")",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,duration -of default=noprint_wrappers=1 docs/public/console/sharing.mp4)",
+      "Read(//private/tmp/**)",
+      "Bash(ffmpeg -y -i \"/Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Projects/fludex.web/docs/public/console/sharing.mp4\" -ss 00:00:02 -vframes 1 sharing_frame.png)"
     ]
   }
 }

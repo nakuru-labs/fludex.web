@@ -4,6 +4,25 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.3.0 — 2026-07-06
+
+### Added
+
+- Flexible, fully configurable notification stack
+- `NavigationButton` widget — pushes a sub-page from any widget page, opening as an overlay on first tap and sliding deeper within it on subsequent taps
+
+### Changed
+
+- Widgets' button result/exception toasts (`ButtonResultToast` / `ButtonExceptionToast`) now surface through the new notification stack instead of a raw AppUI Toast
+- Updated `com.unity.dt.app-ui` dependency to 2.1.11
+
+### Fixed
+
+- Selector widget's dropdown popup now stays open across multiple picks in multi-select mode instead of closing after every selection
+- TextInput widget's placeholder text is no longer near-invisible against its background — its color now provides real contrast
+
+---
+
 ## 1.2.0
 
 ### Added

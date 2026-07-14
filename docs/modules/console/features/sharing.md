@@ -11,7 +11,7 @@ head:
 
 Get a log entry out of the panel and into a bug report, chat message, or ticket in one action — no manual retyping.
 
-<!-- TODO: demo video/gif -->
+<video src="/console/sharing.mp4" width="360" height="289" style="display: block; margin: 0 auto;" autoplay loop muted playsinline></video>
 
 ## Copy Methods
 

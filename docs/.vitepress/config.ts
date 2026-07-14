@@ -126,6 +126,11 @@ export default defineConfig({
         text: 'Console Module',
         items: [
           { text: 'Documentation', link: '/modules/console/' },
+          { text: 'Tags', link: '/modules/console/features/tags' },
+          { text: 'Filtering', link: '/modules/console/features/filtering' },
+          { text: 'Alerting', link: '/modules/console/features/alerting' },
+          { text: 'Detailed View', link: '/modules/console/features/detailed-view' },
+          { text: 'Sharing', link: '/modules/console/features/sharing' },
           { text: 'Changelog', link: '/modules/console/changelog' },
         ],
       },

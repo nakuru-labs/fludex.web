@@ -4,7 +4,21 @@ title: Changelog
 
 # Console Module — Changelog
 
-## 1.1.0
+## 1.2.0 — 2026-07-06
+
+### Added
+
+- **[Alerting](./features/alerting)** — define rules that match incoming logs by severity and pattern, with a toast notification the moment one fires, built on Core's new notification stack
+- Search bar `/tag <name>[|name2|name3]` qualifier and `&&` multi-term AND search, combinable with the existing `/alert` filter and severity toggles — see [Filtering](./features/filtering)
+- Alert rule patterns now support the same `/tag` and `&&` grammar as the search bar, not just a plain substring
+
+### Changed
+
+- Updated `com.unity.dt.app-ui` dependency to 2.1.11
+
+---
+
+## 1.1.0 — 2026-06-25
 
 ### Added
 

@@ -46,34 +46,25 @@ private void Awake()
 }
 ```
 
-## Explore Features
-
-- **[Tags](./features/tags)** — parse `[TAG]:` prefixes into color-coded chips, with per-tag color and format overrides
-- **[Filtering](./features/filtering)** — log level toggles, collapse, and a search grammar with tag and AND qualifiers
-- **[Alerting](./features/alerting)** — define rules that toast-notify the moment a matching log appears
-- **[Detailed View](./features/detailed-view)** — a resizable pane with the full message, stack trace, and timestamp
-- **[Sharing](./features/sharing)** — copy any log to the clipboard via long-press, keyboard shortcut, or menu
-
 ## Features
 
 | Feature | Details |
 |---|---|
 | **Real-time log capture** | Receives logs from any thread the moment they are emitted |
-| **Log levels** | Info, Warning, and Error — each with a toggle and a live count badge. See [Filtering](./features/filtering) |
-| **Collapse** | Groups consecutive identical logs into a single entry with a repeat counter. See [Filtering](./features/filtering) |
-| **Search** | Case-insensitive filter across all log messages, plus tag and AND qualifiers. See [Filtering](./features/filtering) |
-| **Clear** | Wipes the full log history and resets all state. See [Filtering](./features/filtering) |
-| **Alerting** | Define rules that match logs by severity and pattern, with a toast notification on each hit. See [Alerting](./features/alerting) |
+| **Log levels** | Info, Warning, and Error — each with a toggle and a live count badge |
+| **Collapse** | Groups consecutive identical logs into a single entry with a repeat counter |
+| **Search** | Case-insensitive filter across all log messages |
+| **Clear** | Wipes the full log history and resets all state |
 | **Configurable history** | Ring buffer capacity from 100 to 10,000 entries, persisted across sessions; a window label shows the visible range when the buffer wraps |
-| **Long press to copy** | Hold any log entry on mobile to copy it; a progress indicator fills while holding. See [Sharing](./features/sharing) |
-| **Detail view** | Tap a log to open the detail pane with the full message and stack trace; tap the pane to reveal the actions menu. See [Detailed View](./features/detailed-view) |
-| **Keyboard shortcut** | Select a log and press Ctrl+C (Windows / Linux) or Cmd+C (Mac) to copy. See [Sharing](./features/sharing) |
+| **Long press to copy** | Hold any log entry on mobile to copy it; a progress indicator fills while holding |
+| **Detail view** | Tap a log to open the detail pane with the full message and stack trace; tap the pane to reveal the actions menu |
+| **Keyboard shortcut** | Select a log and press Ctrl+C (Windows / Linux) or Cmd+C (Mac) to copy |
 | **Auto-scroll** | Follows new logs automatically; disabled on selection or manual scroll, with a floating button to jump back to the bottom |
-| **Tags** | Log messages prefixed with `[TAG]:` are parsed and shown as color-coded chips in the log list and detail view. See [Tags](./features/tags) |
-| **Multiple tags per message** | Stack tags before the message — e.g. `[UI][PERF]: rendering took 12ms` — each rendered as its own chip. See [Tags](./features/tags) |
-| **Per-tag color overrides** | Assign custom colors to individual tag names via `ConsoleModuleConfiguration.TagColors`. See [Tags](./features/tags) |
-| **Custom tag format** | Configurable tag prefix, suffix, and separator via `ConsoleModuleConfiguration.TagFormat`. See [Tags](./features/tags) |
-| **Configurable timestamp** | Detail pane and optional history list show game time or device time, with optional milliseconds. See [Detailed View](./features/detailed-view) |
+| **Tags** | Log messages prefixed with `[TAG]:` are parsed and shown as color-coded chips in the log list and detail view |
+| **Multiple tags per message** | Stack tags before the message — e.g. `[UI][PERF]: rendering took 12ms` — each rendered as its own chip |
+| **Per-tag color overrides** | Assign custom colors to individual tag names via `ConsoleModuleConfiguration.TagColors` |
+| **Custom tag format** | Configurable tag prefix, suffix, and separator via `ConsoleModuleConfiguration.TagFormat` |
+| **Configurable timestamp** | Detail pane and optional history list show game time or device time, with optional milliseconds |
 
 ## Configuration
 

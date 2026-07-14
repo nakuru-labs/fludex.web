@@ -1,6 +1,6 @@
 ---
 title: Console Tags
-description: "FludeX Console tag system — parse `[TAG]: message` prefixes into color-coded chips, override colors per tag, and customize the tag format."
+description: FludeX Console tag system — parse `[TAG]: message` prefixes into color-coded chips, override colors per tag, and customize the tag format.
 head:
   - - meta
     - name: keywords

@@ -15,7 +15,8 @@
       "Bash(rtk curl *)",
       "Bash(npm run docs:dev -- --port 5173 &> /tmp/vitepress.log & *)",
       "Bash(kill 23862)",
-      "Bash(rtk find *)"
+      "Bash(rtk find *)",
+      "Bash(gh api *)"
     ]
   }
 }

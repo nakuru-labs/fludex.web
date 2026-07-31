@@ -4,6 +4,19 @@ title: Changelog
 
 # Console Module — Changelog
 
+## 1.3.0 — 2026-08-01
+
+### Added
+
+- Haptic feedback wired into console-owned interactions — log copy (long-press and detail view), toolbar actions (clear, collapse, filter chips, search), and alert notifications, the latter only firing for a genuinely new alert
+- New **HAPTICS** settings section — a General toggle for direct-interaction haptics and an Alerting toggle for alert notification haptics
+
+### Fixed
+
+- Log search now filters live as you type instead of only once the search field loses focus, with a 250ms debounce so fast typing doesn't re-run the filter on every keystroke
+
+---
+
 ## 1.2.0 — 2026-07-06
 
 ### Added

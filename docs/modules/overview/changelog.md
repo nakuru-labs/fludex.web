@@ -4,6 +4,18 @@ title: Changelog
 
 # Overview Module — Changelog
 
+## 1.1.0 — 2026-08-01
+
+### Added
+
+- Module configuration page, accessible via the gear icon in the module's app bar
+
+### Changed
+
+- Bumped Core dependency to 1.4.0
+
+---
+
 ## 1.0.3 — 2026-07-06
 
 - Bumped Core dependency to 1.3.0

@@ -97,7 +97,7 @@ Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()
 ## Requirements
 
 - Unity **2022.3** or later
-- `com.nakuru.fludex` **1.3.0**
+- `com.nakuru.fludex` **1.4.0**
 
 ## Installation
 

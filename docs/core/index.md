@@ -18,6 +18,8 @@ All other FludeX packages depend on Core.
 - **Panel engine** — manages the panel lifecycle: show, hide, toggle, dispose
 - **Trigger system** — tap trigger, keyboard trigger, composite trigger, and a `FludexNoTrigger` for manual control
 - **WidgetsBook** — declarative widget library for composing debug panels with live data binding
+- **Core Settings** — a panel-wide settings tray for editing module selection, widget toasts, notification stack behavior, and haptics at runtime. See [Core Settings](./core-settings)
+- **Haptics** — a built-in haptic feedback system wired into panel chrome and WidgetsBook widgets, configurable per-domain. See [Haptics](./haptics)
 - **Module discovery** — loads `FludexModuleDescriptor` assets from `Resources/FludeX/Modules/` at startup; each descriptor exposes a `Version` field shown in the module settings panel
 - **DI container** — reflection-based dependency injection used internally by modules
 

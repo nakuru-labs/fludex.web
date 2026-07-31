@@ -16,7 +16,6 @@ import { features } from '../data/features'
           :key="feature.id"
           class="feature-card"
         >
-          <div class="feature-card__icon">{{ feature.icon }}</div>
           <h3 class="feature-card__title">{{ feature.title }}</h3>
           <p class="feature-card__description">{{ feature.description }}</p>
         </div>
@@ -66,12 +65,6 @@ import { features } from '../data/features'
 .feature-card:hover {
   border-color: rgba(107, 92, 231, 0.4);
   background: var(--color-surface-raised);
-}
-
-.feature-card__icon {
-  font-size: 1.5rem;
-  color: #f59e0b;
-  line-height: 1;
 }
 
 .feature-card__title {

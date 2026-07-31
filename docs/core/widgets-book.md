@@ -19,6 +19,7 @@ WidgetsBook is the built-in way to compose a debug panel. Organize controls into
 | Stepper | Increment/decrement a value |
 | Selector | Pick from a list (dropdown) |
 | Text Input | Enter and bind a string value |
+| ColorPicker | Pick a color via a swatch that opens AppUI's color picker popover |
 
 ## Building a Panel
 

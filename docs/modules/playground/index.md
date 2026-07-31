@@ -41,3 +41,7 @@ private void Awake()
 | `TryGetPage(pageId, out page)` | Look up a page by id — returns `false` if not found |
 
 See **Sample 07 – Getting Started** and **Sample 09 – Showcase** for full examples.
+
+## Configuration
+
+The Playground module implements `IConfigurableModule`, so a settings button (gear icon) appears in the module's app bar whenever it's active. Tap it to open a settings tray showing the module's version, author, and links to documentation, changelog, and support.

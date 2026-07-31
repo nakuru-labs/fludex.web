@@ -2,7 +2,6 @@
 <script setup lang="ts">
 import SiteHeader from '../components/SiteHeader.vue'
 import HeroSection from '../components/HeroSection.vue'
-import FeatureShowcase from '../components/FeatureShowcase.vue'
 import FeatureGrid from '../components/FeatureGrid.vue'
 import CtaStrip from '../components/CtaStrip.vue'
 import SiteFooter from '../components/SiteFooter.vue'
@@ -16,9 +15,6 @@ import ReviewToast from '../components/ReviewToast.vue'
     <SiteHeader />
     <main class="promo-main">
       <HeroSection />
-      <ClientOnly>
-        <FeatureShowcase />
-      </ClientOnly>
       <FeatureGrid />
       <CtaStrip />
     </main>

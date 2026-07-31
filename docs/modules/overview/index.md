@@ -65,3 +65,7 @@ private void Awake()
 | `TryGetCustomPage(pageId, out page)` | Look up a custom tab by id — returns `false` if not found |
 
 See **Sample 06 – Customization** and **Sample 08 – Showcase** for full examples.
+
+## Configuration
+
+The Overview module implements `IConfigurableModule`, so a settings button (gear icon) appears in the module's app bar whenever it's active. Tap it to open a settings tray showing the module's version, author, and links to documentation, changelog, and support.

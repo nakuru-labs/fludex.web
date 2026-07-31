@@ -4,6 +4,26 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.4.0 — 2026-08-01
+
+### Added
+
+- `ColorPicker` widget — a new WidgetsBook element for picking a color via a swatch that opens AppUI's color picker popover
+- New Core Settings page — reachable from the panel's settings button — for editing core configuration at runtime instead of only at code time: initial module selection, widget result/exception toasts, notification stack behavior, and haptics. See [Core Settings](../core/core-settings)
+- Haptic feedback system — `IFludexHapticsService` with per-domain toggles (Core / Widgets) via `FludexHapticsConfiguration`, configured through `FludexConfig.Haptics`; wired into Button/QuietButton, Toggle, Selector, Stepper, Insets, Text, Info, ColorPicker, NavigationButton, TextInput, Slider/Range Slider, WidgetsBook tab navigation, and panel chrome. See [Haptics](../core/haptics)
+- `IFludexNotificationStackService.TryPush()` — pushes a notification and returns `true` only when it's genuinely new, used to avoid duplicate haptic feedback for repeat alerts
+
+### Changed
+
+- `WidgetsBookPresenter`'s second constructor argument changed from `IFludexResolvingFactory` to `IServiceProvider` — existing direct `new(...)` calls need a one-line update; still constructible directly, no forced DI-factory usage
+- Adjusted drawer styling — footer redesign, module list refinements
+
+### Fixed
+
+- FludeX's UI no longer conflicts with the host game's own UI panels for rendering/interaction order — `PanelSettings` sorting order changed from 0 to 10000
+
+---
+
 ## 1.3.0 — 2026-07-06
 
 ### Added
@@ -23,7 +43,7 @@ title: Changelog
 
 ---
 
-## 1.2.0
+## 1.2.0 — 2026-06-25
 
 ### Added
 
@@ -56,7 +76,7 @@ title: Changelog
 
 ---
 
-## 1.0.0
+## 1.0.0 — 2026-05-06
 
 Initial release.
 

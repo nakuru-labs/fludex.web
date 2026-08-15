@@ -76,6 +76,7 @@ private void Awake()
 | **Per-tag color overrides** | Assign custom colors to individual tag names via `ConsoleModuleConfiguration.TagColors`. See [Tags](./features/tags) |
 | **Custom tag format** | Configurable tag prefix, suffix, and separator via `ConsoleModuleConfiguration.TagFormat`. See [Tags](./features/tags) |
 | **Configurable timestamp** | Detail pane and optional history list show game time or device time, with optional milliseconds. See [Detailed View](./features/detailed-view) |
+| **Haptics** | Feedback on log copy, toolbar actions, and alert notifications — independent of Core's haptics, but subordinate to its master switch. See [Haptics](./features/haptics) |
 
 ## Configuration
 
@@ -86,6 +87,7 @@ Runtime settings (adjustable from the tray):
 - History buffer size (100 – 10,000 entries)
 - Timestamp source — game time or device time
 - Milliseconds display in timestamps
+- Haptics — General (direct interactions) and Alerting toggles, when [haptics are available](./features/haptics#availability) on the current platform
 
 Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()`, all optional):
 
@@ -97,7 +99,7 @@ Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()
 ## Requirements
 
 - Unity **2022.3** or later
-- `com.nakuru.fludex` **1.4.0**
+- `com.nakuru.fludex` **1.5.0**
 
 ## Installation
 

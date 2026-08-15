@@ -68,4 +68,4 @@ See **Sample 06 – Customization** and **Sample 08 – Showcase** for full exam
 
 ## Configuration
 
-The Overview module implements `IConfigurableModule`, so a settings button (gear icon) appears in the module's app bar whenever it's active. Tap it to open a settings tray showing the module's version, author, and links to documentation, changelog, and support.
+The Overview module implements `IConfigurableModule`, so a settings button (gear icon) appears in the module's app bar whenever it's active. Tap it to open a settings tray showing the module's version, author, and links to documentation, changelog, support, and reporting an issue.

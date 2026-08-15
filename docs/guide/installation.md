@@ -18,4 +18,4 @@ head:
 
 ## Dependency
 
-FludeX depends on `com.unity.dt.app-ui` version **2.1.11**. This package is declared as a UPM dependency and installs automatically when you import FludeX — no manual step is required.
+FludeX depends on `com.unity.dt.app-ui` version **2.1.12**. This package is declared as a UPM dependency and installs automatically when you import FludeX — no manual step is required.

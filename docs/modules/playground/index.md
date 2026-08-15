@@ -44,4 +44,4 @@ See **Sample 07 – Getting Started** and **Sample 09 – Showcase** for full ex
 
 ## Configuration
 
-The Playground module implements `IConfigurableModule`, so a settings button (gear icon) appears in the module's app bar whenever it's active. Tap it to open a settings tray showing the module's version, author, and links to documentation, changelog, and support.
+The Playground module implements `IConfigurableModule`, so a settings button (gear icon) appears in the module's app bar whenever it's active. Tap it to open a settings tray showing the module's version, author, and links to documentation, changelog, support, and reporting an issue.

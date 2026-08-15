@@ -23,7 +23,9 @@ Open the drawer (tap the hamburger icon in the app bar) and tap **Settings** in 
 | **Haptics** | Core | Haptics for panel/shell chrome — see [Haptics](./haptics) |
 | **Haptics** | Widgets | Haptics for individual widget interactions — see [Haptics](./haptics) |
 
-Below these, the tray also shows the standard About + Links block — current version, author, and links to documentation, changelog, and support — matching every other module's settings tray.
+The whole **Haptics** section only appears if haptics are actually available on the current platform — it's hidden entirely on Desktop. See [Haptics — Platform Availability](./haptics#platform-availability). Within the section, **Core** and **Widgets** themselves stay hidden until **Enabled** is turned on — a live example of [Conditional Widgets](./conditional-widgets) in FludeX's own UI.
+
+Below these, the tray also shows the standard About + Links block — current version, author, and links to documentation, changelog, support, and reporting an issue — matching every other module's settings tray.
 
 ## Persistence vs. `FludexConfig`
 

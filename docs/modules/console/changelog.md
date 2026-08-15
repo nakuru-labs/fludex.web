@@ -4,6 +4,19 @@ title: Changelog
 
 # Console Module — Changelog
 
+## 1.4.0 — 2026-08-15
+
+### Added
+
+- HAPTICS section title now shows "(Disabled Globally)" when the master Haptics toggle in Core Settings is off — the section's two toggles stay visible but functionally inert while the master switch is disabled, so the title reflects that live instead of silently looking normal
+- Added a "Report an Issue" link to the About section
+
+### Changed
+
+- HAPTICS settings section is now hidden entirely on Desktop, where haptic feedback isn't available
+
+---
+
 ## 1.3.0 — 2026-08-01
 
 ### Added

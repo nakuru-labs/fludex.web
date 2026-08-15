@@ -4,6 +4,18 @@ title: Changelog
 
 # Overview Module — Changelog
 
+## 1.1.1 — 2026-08-15
+
+### Changed
+
+- Bumped Core dependency to 1.5.0
+
+### Fixed
+
+- Fixed the Active Scene info in Overview sometimes showing blank or stale right after switching scenes
+
+---
+
 ## 1.1.0 — 2026-08-01
 
 ### Added

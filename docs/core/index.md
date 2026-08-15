@@ -15,9 +15,10 @@ All other FludeX packages depend on Core.
 
 ## What's in Core
 
-- **Panel engine** — manages the panel lifecycle: show, hide, toggle, dispose
+- **Panel engine** — manages the panel lifecycle: show, hide, toggle, dispose; renders through Unity 6.5's `PanelRenderer` automatically on Unity 6000.5 and later, falling back to the legacy `UIDocument` on earlier versions
 - **Trigger system** — tap trigger, keyboard trigger, composite trigger, and a `FludexNoTrigger` for manual control
 - **WidgetsBook** — declarative widget library for composing debug panels with live data binding
+- **Conditional Widgets** — show, hide, enable, or disable any widget or element based on another setting. See [Conditional Widgets](./conditional-widgets)
 - **Core Settings** — a panel-wide settings tray for editing module selection, widget toasts, notification stack behavior, and haptics at runtime. See [Core Settings](./core-settings)
 - **Haptics** — a built-in haptic feedback system wired into panel chrome and WidgetsBook widgets, configurable per-domain. See [Haptics](./haptics)
 - **Module discovery** — loads `FludexModuleDescriptor` assets from `Resources/FludeX/Modules/` at startup; each descriptor exposes a `Version` field shown in the module settings panel

@@ -32,4 +32,4 @@ FludeX uses a modular architecture — each module is independently scoped with 
 
 | Package | Version | Notes |
 |---|---|---|
-| `com.unity.dt.app-ui` | 2.1.11 | Installed automatically as a UPM dependency — no manual step required |
+| `com.unity.dt.app-ui` | 2.1.12 | Installed automatically as a UPM dependency — no manual step required |

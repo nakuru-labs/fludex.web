@@ -4,6 +4,23 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.5.0 — 2026-08-15
+
+### Added
+
+- Widgets and sections can now be shown, hidden, enabled, or disabled based on another setting — for example, hiding advanced options until a related toggle is turned on. See [Conditional Widgets](../core/conditional-widgets)
+- Added a "Disabled" label to the Haptics section in Console Settings when haptics is turned off globally
+- Added a "Report an Issue" link to the Core Settings page's About/Links section
+- FludeX now renders through Unity 6.5's `PanelRenderer` automatically on Unity 6000.5 and later, falling back to the legacy `UIDocument` on earlier versions — no configuration needed
+
+### Changed
+
+- Refreshed the visual style for disabled and inactive widgets across the whole panel — clearer, more consistent contrast between disabled elements and the controls around them
+- Haptics settings are now hidden on Desktop, where haptic feedback isn't available
+- Updated the App UI dependency to 2.1.12
+
+---
+
 ## 1.4.0 — 2026-08-01
 
 ### Added

@@ -35,7 +35,15 @@ Modules that manage their own local enable/disable concept (for example Console'
 
 ## Platform Availability
 
-Haptic feedback only fires on mobile (`Application.isMobilePlatform`) — `Trigger()` is a no-op everywhere else, including the Editor and desktop builds. There's no separate check to make yourself; it's safe to call `Trigger()` unconditionally regardless of platform.
+Haptic feedback only fires on mobile (`Application.isMobilePlatform`) — `Trigger()` is a no-op everywhere else, including the Editor and desktop builds. There's no separate check to make yourself before calling `Trigger()`; it's always safe to call unconditionally regardless of platform.
+
+For building your own settings UI, `IFludexHapticsService.IsHapticsAvailable` reports whether haptics could do anything at all on the current platform:
+
+```csharp
+public bool IsHapticsAvailable => Application.isEditor || Application.isMobilePlatform;
+```
+
+The Editor is included alongside mobile so haptics-related UI stays visible and testable during Editor Play mode, even though no actual vibration fires there. FludeX's own built-in settings UI uses this to hide its Haptics controls entirely on platforms where they'd have no effect: the **Haptics** section in [Core Settings](./core-settings) and the **HAPTICS** section in [Console Settings](../modules/console/features/haptics) both disappear completely on Desktop, rather than showing controls that would visibly do nothing.
 
 ## What's Wired In
 

@@ -4,6 +4,15 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.6.0 — 2026-09-01
+
+### Added
+
+- Added a "DANGER ZONE" section to Core Settings — a confirmation-gated "Reset Settings" button that restores all Core settings to their `FludexConfig` seed values, or FludeX's built-in defaults if nothing was overridden
+- Settings now persist to a JSON file instead of PlayerPrefs, migrated automatically from existing PlayerPrefs data on first launch — isolates FludeX's settings from the host game's own PlayerPrefs usage, so `PlayerPrefs.DeleteAll()` no longer wipes them as a side effect
+
+---
+
 ## 1.5.0 — 2026-08-15
 
 ### Added

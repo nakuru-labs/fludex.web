@@ -30,3 +30,5 @@ Below these, the tray also shows the standard About + Links block — current ve
 ## Persistence vs. `FludexConfig`
 
 Core Settings is backed by `IFludexRuntimeConfiguration`, a mutable, persisted layer distinct from the immutable `FludexConfig` you pass to `FludeX.Instance.Initialize(...)`. `FludexConfig` only supplies the *seed* values the first time FludeX runs on a device — after that, whatever the player changes in Core Settings takes over and survives app restarts, independent of what your code passes at `Initialize()` time.
+
+These values are stored in their own JSON file rather than PlayerPrefs, so they're isolated from the host game's PlayerPrefs usage — a `PlayerPrefs.DeleteAll()` call elsewhere in your game won't wipe them. Existing PlayerPrefs-stored settings from before this change are migrated automatically on first launch.

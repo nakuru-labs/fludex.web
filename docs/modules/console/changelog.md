@@ -4,6 +4,15 @@ title: Changelog
 
 # Console Module — Changelog
 
+## 1.5.0 — 2026-09-01
+
+### Added
+
+- Added a "DANGER ZONE" section to Console Settings — a confirmation-gated "Reset Settings" button that restores all Console settings to their `ConsoleModuleConfiguration` seed values, or Console's built-in defaults if nothing was overridden
+- Settings now persist to a JSON file instead of PlayerPrefs, migrated automatically from existing PlayerPrefs data on first launch — isolates Console's settings from the host game's own PlayerPrefs usage, so `PlayerPrefs.DeleteAll()` no longer wipes them as a side effect
+
+---
+
 ## 1.4.0 — 2026-08-15
 
 ### Added

@@ -57,6 +57,10 @@ Create a `FludexModuleDescriptor` asset via **Assets → Create → FludeX → M
 
 FludeX discovers and loads it automatically on the next run — no registration or code changes needed.
 
+## Persisting Your Own Data
+
+Need your module to remember settings or data across sessions? See [Persistent Storage](./persistent-storage) for the file-based storage services available via DI.
+
 ## Reference
 
 See **Sample 03 – CustomModule** for a complete working example covering all four classes, both UXML files, and the descriptor asset setup.

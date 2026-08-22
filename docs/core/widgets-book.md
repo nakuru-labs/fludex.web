@@ -21,6 +21,10 @@ WidgetsBook is the built-in way to compose a debug panel. Organize controls into
 | Text Input | Enter and bind a string value |
 | ColorPicker | Pick a color via a swatch that opens AppUI's color picker popover |
 
+## Stepper: Drag to Scrub
+
+Besides tapping the +/- buttons, you can drag horizontally on a Stepper's field or its label to scrub its value directly. Sensitivity is velocity-sensitive — a slow drag moves the value in fine increments, a fast drag moves it in coarser ones. A tap without any horizontal movement falls through to normal tap-to-type, so quick taps still work as before.
+
 ## Building a Panel
 
 Use `Widget.Create()` with a fluent builder API to compose widgets into a descriptor, then add them to a page:

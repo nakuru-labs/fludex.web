@@ -10,6 +10,7 @@ title: Changelog
 
 - Added a "DANGER ZONE" section to Core Settings — a confirmation-gated "Reset Settings" button that restores all Core settings to their `FludexConfig` seed values, or FludeX's built-in defaults if nothing was overridden
 - Settings now persist to a JSON file instead of PlayerPrefs, migrated automatically from existing PlayerPrefs data on first launch — isolates FludeX's settings from the host game's own PlayerPrefs usage, so `PlayerPrefs.DeleteAll()` no longer wipes them as a side effect
+- Stepper widgets now support drag-to-scrub — dragging horizontally on the field or its label scrubs the value directly, with velocity-sensitive sensitivity (slow drags for fine control, fast drags for coarse); a tap without any drag still falls through to normal tap-to-type
 
 ---
 

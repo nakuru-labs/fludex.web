@@ -4,6 +4,18 @@ title: Changelog
 
 # Playground Module — Changelog
 
+## 1.1.2 — 2026-09-01
+
+### Changed
+
+- Bumped Core dependency to 1.6.0
+
+### Fixed
+
+- Fixed several Showcase sample sliders (Enemy Damage Scale, Master Volume, Music Volume, Time Scale, Fog Density, Font Scale, VO Volume) whose `step` value had been left over from before Float sliders respected `step`, collapsing each one to only 2-3 reachable positions
+
+---
+
 ## 1.1.1 — 2026-08-15
 
 ### Changed

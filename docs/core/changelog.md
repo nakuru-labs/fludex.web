@@ -4,6 +4,18 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.7.0 — 2026-09-15
+
+### Added
+
+- Range Slider (Int/Float) widgets now support the same custom marks and soft magnetic snapping as Slider — each thumb pulls onto its own nearest mark and confirms with its own haptic independently, so one thumb can sit snapped to a mark while the other drags freely at the same time. See [WidgetsBook — Slider: Marks & Magnetic Snap](../core/widgets-book#slider-marks-magnetic-snap)
+
+### Fixed
+
+- Slider and Range Slider widgets with marks enabled and a fine step relative to their range no longer silently truncate their tick marks partway across the track — the underlying AppUI slider control caps auto-generated marks at 32, which a small step on a wide range could easily exceed with no indication anything was wrong. FludeX now generates a safe, evenly-spaced fallback instead, with a console warning in the Editor and development builds explaining what happened — for Slider, the warning also notes that passing explicit marks avoids the fallback entirely
+
+---
+
 ## 1.6.0 — 2026-09-01
 
 ### Added

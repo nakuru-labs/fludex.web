@@ -27,7 +27,7 @@ Besides tapping the +/- buttons, you can drag horizontally on a Stepper's field 
 
 ## Slider: Marks & Magnetic Snap
 
-Slider (Int/Float) widgets can now be given an explicit list of marks (`marks`) instead of relying on evenly-spaced step ticks — useful for calling out specific, non-uniformly-spaced values (a Fibonacci-like sequence, a handful of meaningful presets, etc.). Combined with `snapping`, the dragged value softly pulls onto the nearest mark once close enough, confirmed with a light haptic. Dragging stays completely free everywhere else on the track — marks only pull when you're already near one, they never block reaching a value in between.
+Slider (Int/Float) and Range Slider (Int/Float) widgets can now be given an explicit list of marks (`marks`) instead of relying on evenly-spaced step ticks — useful for calling out specific, non-uniformly-spaced values (a Fibonacci-like sequence, a handful of meaningful presets, etc.). Combined with `snapping`, the dragged value softly pulls onto the nearest mark once close enough, confirmed with a light haptic. Dragging stays completely free everywhere else on the track — marks only pull when you're already near one, they never block reaching a value in between.
 
 ```csharp
 .WithSliderFloat("Zoom", () => cameraZoom, 0.5f, 2f, step: 0.01f,
@@ -35,7 +35,15 @@ Slider (Int/Float) widgets can now be given an explicit list of marks (`marks`) 
     marks: new[] { 0.5f, 1f, 1.5f, 2f }, snapping: true)
 ```
 
-`showMarks` and `showMarkLabels` (rendering tick marks and their labels) aren't new — `marks` and `snapping` are. This is Slider-only for now; Range Slider doesn't yet support custom marks or snapping.
+On Range Slider, each thumb snaps to the nearest mark independently — one thumb can sit pulled onto a mark while the other drags freely elsewhere on the same track, each confirming with its own haptic.
+
+```csharp
+.WithRangeSliderFloat("Price Range", () => priceRange, 0f, 100f, step: 1f,
+    showMarks: true, showMarkLabels: true,
+    marks: new[] { 0f, 25f, 50f, 75f, 100f }, snapping: true)
+```
+
+`showMarks` and `showMarkLabels` (rendering tick marks and their labels) aren't new — `marks` and `snapping` are.
 
 ## Building a Panel
 

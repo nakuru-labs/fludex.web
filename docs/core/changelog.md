@@ -9,10 +9,14 @@ title: Changelog
 ### Added
 
 - Range Slider (Int/Float) widgets now support the same custom marks and soft magnetic snapping as Slider — each thumb pulls onto its own nearest mark and confirms with its own haptic independently, so one thumb can sit snapped to a mark while the other drags freely at the same time. See [WidgetsBook — Slider: Marks & Magnetic Snap](../core/widgets-book#slider-marks-magnetic-snap)
+- A built-in way to read, change, and clear the game's own saved `PlayerPrefs` values, with optional encryption for text values — for use by other FludeX services and modules. See [PlayerPrefs Access](../core/playerprefs)
+  - It also reports whenever a value changes through it, so a live view of those values can refresh itself instead of re-checking.
 
 ### Fixed
 
 - Slider and Range Slider widgets with marks enabled and a fine step relative to their range no longer silently truncate their tick marks partway across the track — the underlying AppUI slider control caps auto-generated marks at 32, which a small step on a wide range could easily exceed with no indication anything was wrong. FludeX now generates a safe, evenly-spaced fallback instead, with a console warning in the Editor and development builds explaining what happened — for Slider, the warning also notes that passing explicit marks avoids the fallback entirely
+- Range Slider thumbs could get permanently stuck together when dragged onto the same value, making it impossible to pull them apart again — now fixed.
+- A disabled button could show no background at all, making it look like floating text instead of a button — it now matches the other disabled controls around it.
 
 ---
 

@@ -96,6 +96,14 @@ Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()
 - `Timestamp` — `ConsoleTimestampConfiguration` with `Mode`, `ShowMilliseconds`, and `ShowInList`; each is applied only if the player has no saved preference yet (first launch). See [Detailed View](./features/detailed-view)
 - `DefaultRules` — starter list of `FludexConsoleAlertRule`s, seeded only on first launch — never overwrites rules the player has since created, edited, or removed. See [Alerting](./features/alerting)
 
+### Resetting to defaults
+
+The tray's **Danger Zone** section has a single **Reset Settings** button, behind a confirm/cancel dialog. It restores every saved Console setting — the ones above (history buffer size, timestamp source, millisecond display, the haptics toggles), plus anything else the module has persisted — to its `ConsoleModuleConfiguration` seed value, or Console's built-in default for anything that configuration didn't set.
+
+Your alert rules are reset along with them: whatever you've created, edited, or removed is replaced with the `DefaultRules` list (an empty list, if you didn't supply one). This is the one case where `DefaultRules` overwrites the player's own rules — first-launch seeding never does.
+
+A reset like this exists for **Core** and **Console** only — the Overview and Playground modules have no persisted settings to reset.
+
 ## Requirements
 
 - Unity **2022.3** or later

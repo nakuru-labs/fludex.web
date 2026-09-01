@@ -30,6 +30,12 @@ FludeX.Instance.Initialize(new FludexCompositeTrigger(
 ));
 ```
 
+### Runtime Configuration
+
+Position, Padding, Radius, and Opacity can also be adjusted live, without touching code — Core Settings has a "TRIGGER" section with a "Setup" button that opens a dedicated Trigger Settings page for the active trigger. Changes apply immediately and persist across restarts.
+
+The `FludexTapTriggerConfig` you pass at `Initialize()` time only supplies the *seed* values for a device's first launch — the same relationship `FludexConfig` has with Core Settings (see [Core Settings — Persistence vs. FludexConfig](./core-settings#persistence-vs-fludexconfig)). After that, whatever's set on the Trigger Settings page takes over and survives restarts, independent of what your code passes at `Initialize()` time. "Reset Settings" in Core Settings' Danger Zone resets the trigger back to that seed (or FludeX's built-in defaults, if none was supplied) along with everything else.
+
 ## Keyboard Trigger
 
 Opens and closes the panel with a single key press. Uses `OnGUI / Event.current` — no Input System package dependency.

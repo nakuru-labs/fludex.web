@@ -17,9 +17,25 @@ WidgetsBook is the built-in way to compose a debug panel. Organize controls into
 | Slider (int / float) | Adjust a numeric value with configurable range and step |
 | Range Slider | Select a min/max range with two handles |
 | Stepper | Increment/decrement a value |
-| Selector | Pick from a list (dropdown) |
+| Selector | Pick from a list (dropdown); label is optional |
 | Text Input | Enter and bind a string value |
 | ColorPicker | Pick a color via a swatch that opens AppUI's color picker popover |
+
+## Stepper: Drag to Scrub
+
+Besides tapping the +/- buttons, you can drag horizontally on a Stepper's field or its label to scrub its value directly. Sensitivity is velocity-sensitive — a slow drag moves the value in fine increments, a fast drag moves it in coarser ones. A tap without any horizontal movement falls through to normal tap-to-type, so quick taps still work as before.
+
+## Slider: Marks & Magnetic Snap
+
+Slider (Int/Float) widgets can now be given an explicit list of marks (`marks`) instead of relying on evenly-spaced step ticks — useful for calling out specific, non-uniformly-spaced values (a Fibonacci-like sequence, a handful of meaningful presets, etc.). Combined with `snapping`, the dragged value softly pulls onto the nearest mark once close enough, confirmed with a light haptic. Dragging stays completely free everywhere else on the track — marks only pull when you're already near one, they never block reaching a value in between.
+
+```csharp
+.WithSliderFloat("Zoom", () => cameraZoom, 0.5f, 2f, step: 0.01f,
+    showMarks: true, showMarkLabels: true,
+    marks: new[] { 0.5f, 1f, 1.5f, 2f }, snapping: true)
+```
+
+`showMarks` and `showMarkLabels` (rendering tick marks and their labels) aren't new — `marks` and `snapping` are. This is Slider-only for now; Range Slider doesn't yet support custom marks or snapping.
 
 ## Building a Panel
 

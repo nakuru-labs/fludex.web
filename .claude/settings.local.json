@@ -30,7 +30,10 @@
       "Bash(ffmpeg -y -i \"/Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Projects/fludex.web/docs/public/console/sharing.mp4\" -ss 00:00:02 -vframes 1 sharing_frame.png)",
       "Read(//Users/nakuru/Documents/Job/Unity/Nakuru.Labs/**)",
       "Read(//Users/nakuru/Documents/Job/Unity/Nakuru.Labs/Packages/Nakuru.FludeX/Modules/**)",
-      "Bash(xargs -I{} sh -c 'echo {}; cat {}')"
+      "Bash(xargs -I{} sh -c 'echo {}; cat {}')",
+      "Bash(git commit -m ' *)",
+      "Bash(git rev-list *)",
+      "Bash(xargs -0 -I{} echo \"PATH:{}\")"
     ]
   }
 }

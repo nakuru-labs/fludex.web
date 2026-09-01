@@ -108,6 +108,7 @@ export default defineConfig({
           { text: 'Core Settings', link: '/core/core-settings' },
           { text: 'Haptics', link: '/core/haptics' },
           { text: 'Custom Modules', link: '/core/custom-modules' },
+          { text: 'Persistent Storage', link: '/core/persistent-storage' },
           { text: 'Module Lifecycle', link: '/core/module-lifecycle' },
           { text: 'Changelog', link: '/core/changelog' },
         ],

@@ -80,7 +80,7 @@ private void Awake()
 
 ## Configuration
 
-The Console module implements `IConfigurableModule`, so a settings button appears in the app bar when the console is active. Tap it to open the configuration tray.
+The Console module implements `IConfigurableModule`, so a settings button appears in the app bar when the console is active. Tap it to open the configuration tray. Settings are stored in their own JSON file, isolated from the host game's PlayerPrefs usage — a `PlayerPrefs.DeleteAll()` call elsewhere in your game won't wipe them.
 
 Runtime settings (adjustable from the tray):
 

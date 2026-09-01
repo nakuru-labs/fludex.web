@@ -4,6 +4,26 @@ title: Changelog
 
 # Core — Changelog
 
+## 1.6.0 — 2026-09-01
+
+### Added
+
+- Buttons can now show a confirm/cancel dialog before running their action (`ButtonConfirmationConfig`), styled to match FludeX's own visual style — Tray-style border radius, colors, typography, and full-width split action buttons — instead of AppUI's defaults
+- Added a "DANGER ZONE" section to Core Settings — a confirmation-gated "Reset Settings" button that restores all Core settings to their `FludexConfig` seed values, or FludeX's built-in defaults if nothing was overridden
+- Settings now persist to a JSON file instead of PlayerPrefs, migrated automatically from existing PlayerPrefs data on first launch — isolates FludeX's settings from the host game's own PlayerPrefs usage, so `PlayerPrefs.DeleteAll()` no longer wipes them as a side effect
+- Stepper widgets now support drag-to-scrub — dragging horizontally on the field or its label scrubs the value directly, with velocity-sensitive sensitivity (slow drags for fine control, fast drags for coarse); a tap without any drag still falls through to normal tap-to-type
+- The tap trigger can now be configured live, without touching code — a new "TRIGGER" section in Core Settings opens a dedicated page for its Position, Padding, Radius, and Opacity. Changes persist across restarts and reset along with everything else in Reset Settings. See [Triggers — Runtime Configuration](../core/triggers#runtime-configuration)
+- Slider (Int/Float) widgets can now be given custom marks at arbitrary, non-uniform values, with soft magnetic snapping — dragging near a mark pulls the value onto it and confirms with a haptic, while the rest of the track stays completely free to drag. See [WidgetsBook — Slider: Marks & Magnetic Snap](../core/widgets-book#slider-marks-magnetic-snap)
+- Selector widgets can now be created without a label, for cases where the surrounding widget's own title already says what it's for. See [WidgetsBook](../core/widgets-book)
+
+### Fixed
+
+- Fixed a rare case where tapping a widget immediately after a fast scroll gesture (e.g. reaching the bottom of a long settings page) wouldn't register
+- Slider and Range Slider widgets now correctly respect their configured step under the default restriction policy — previously it was silently ignored (Int variants could land on any whole number, not just multiples of step; Float variants ignored it entirely and dragged fully continuously). If a slider's step was left at a coarse value assuming it had no effect, dragging will now be more quantized than before
+- Fixed the Range Slider's Float variant accepting only whole-number step values due to an internal typing bug — sub-1 steps like `0.01` now work as expected
+
+---
+
 ## 1.5.0 — 2026-08-15
 
 ### Added

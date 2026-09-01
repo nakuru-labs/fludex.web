@@ -94,7 +94,7 @@ Code-only settings (set via `ConsoleModuleConfiguration` passed to `Initialize()
 - `TagColors` — `IReadOnlyDictionary<string, Color32>` mapping tag names to custom colors. See [Tags](./features/tags)
 - `TagFormat` — `ConsoleTagFormat` struct (`TagPrefix`, `TagSuffix`, `EndSeparator`) controlling how tags are parsed from log messages. See [Tags](./features/tags)
 - `Timestamp` — `ConsoleTimestampConfiguration` with `Mode`, `ShowMilliseconds`, and `ShowInList`; each is applied only if the player has no saved preference yet (first launch). See [Detailed View](./features/detailed-view)
-- `DefaultRules` — starter list of `FludexConsoleAlertRule`s, seeded only on first launch — never overwrites rules the player has since created, edited, or removed. See [Alerting](./features/alerting)
+- `DefaultRules` — starter list of `FludexConsoleAlertRule`s. Seeded on first launch only, and never overwrites rules the player has since created, edited, or removed — the one exception being [Reset Settings](#resetting-to-defaults), which does replace the player's rules with this list. See [Alerting](./features/alerting)
 
 ### Resetting to defaults
 

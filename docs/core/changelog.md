@@ -17,6 +17,9 @@ title: Changelog
 - Slider and Range Slider widgets with marks enabled and a fine step relative to their range no longer silently truncate their tick marks partway across the track — the underlying AppUI slider control caps auto-generated marks at 32, which a small step on a wide range could easily exceed with no indication anything was wrong. FludeX now generates a safe, evenly-spaced fallback instead, with a console warning in the Editor and development builds explaining what happened — for Slider, the warning also notes that passing explicit marks avoids the fallback entirely
 - Range Slider thumbs could get permanently stuck together when dragged onto the same value, making it impossible to pull them apart again — now fixed.
 - A disabled button could show no background at all, making it look like floating text instead of a button — it now matches the other disabled controls around it.
+- Buttons with a simple action and no result to report (like Reset Settings) weren't triggering haptic feedback on tap — they now feel the same as any other button.
+- Confirmation dialogs were silent when they appeared and when Cancel was pressed — both now give haptic feedback too; confirming already did.
+- A stability pass from an internal code audit: removing a page from a WidgetsBook at runtime no longer leaves the tab bar highlighting the wrong tab or landing on the wrong page afterward; Slider dragging is smoother during sustained movement; startup is more resilient to a malformed settings file or an unexpected type encountered while discovering modules; and removing widgets or pages no longer leaves parts of them behind in memory.
 
 ---
 

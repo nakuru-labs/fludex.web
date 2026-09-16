@@ -23,13 +23,20 @@ Open the drawer (tap the hamburger icon in the app bar) and tap **Settings** in 
 | **Haptics** | Enabled | Master switch for all haptic feedback |
 | **Haptics** | Core | Haptics for panel/shell chrome — see [Haptics](./haptics) |
 | **Haptics** | Widgets | Haptics for individual widget interactions — see [Haptics](./haptics) |
+| **Danger Zone** | Reset Settings | Restores every Core setting to its starting value, behind a confirm/cancel dialog — see [Resetting to defaults](#resetting-to-defaults) |
 
 The whole **Haptics** section only appears if haptics are actually available on the current platform — it's hidden entirely on Desktop. See [Haptics — Platform Availability](./haptics#platform-availability). Within the section, **Core** and **Widgets** themselves stay hidden until **Enabled** is turned on — a live example of [Conditional Widgets](./conditional-widgets) in FludeX's own UI. The **Trigger** section only appears if the active trigger supports runtime configuration (the built-in tap trigger does) — a custom `IFludexTrigger` that doesn't implement `ITriggerConfigurationProvider` won't show one.
 
-Below these, the tray also shows the standard About + Links block — current version, author, and links to documentation, changelog, support, and reporting an issue — matching every other module's settings tray.
+Below these, the tray shows the standard About + Links block — current version, author, and links to documentation, changelog, support, and reporting an issue — matching every other module's settings tray. Last of all is the **Danger Zone** section, covered under [Resetting to defaults](#resetting-to-defaults).
 
 ## Persistence vs. `FludexConfig`
 
 Core Settings is backed by `IFludexRuntimeConfiguration`, a mutable, persisted layer distinct from the immutable `FludexConfig` you pass to `FludeX.Instance.Initialize(...)`. `FludexConfig` only supplies the *seed* values the first time FludeX runs on a device — after that, whatever the player changes in Core Settings takes over and survives app restarts, independent of what your code passes at `Initialize()` time.
 
 These values are stored in their own JSON file rather than PlayerPrefs, so they're isolated from the host game's PlayerPrefs usage — a `PlayerPrefs.DeleteAll()` call elsewhere in your game won't wipe them. Existing PlayerPrefs-stored settings from before this change are migrated automatically on first launch.
+
+### Resetting to defaults
+
+At the bottom of the tray, a **Danger Zone** section holds a single **Reset Settings** button. It asks for confirmation first — a confirm/cancel dialog — then restores every Core setting to its `FludexConfig` seed value, or FludeX's built-in default for anything `FludexConfig` didn't set. The [trigger's runtime configuration](./triggers#runtime-configuration) — position, padding, radius, opacity — is reset along with everything else.
+
+A reset like this exists for **Core** and **Console** only. The Overview and Playground modules have no persisted or adjustable settings of their own, so there is nothing for them to reset.

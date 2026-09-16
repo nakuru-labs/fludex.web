@@ -4,6 +4,20 @@ title: Changelog
 
 # Console Module — Changelog
 
+## 1.6.0 — 2026-09-15
+
+### Changed
+
+- Bumped Core dependency to 1.6.0
+
+### Fixed
+
+- Parameter and field names mentioned in Console Settings' descriptions are now shown in bold, making them easier to spot while skimming.
+- Fixed a memory leak where switching between logs quickly could leave an old event handler attached, along with some leftover debug logging from earlier testing.
+- Alert rule matching is faster with several rules active — parsed patterns are now cached instead of re-parsed on every log, and tag lookups are skipped entirely when the Tags feature is off.
+
+---
+
 ## 1.5.0 — 2026-09-01
 
 ### Added

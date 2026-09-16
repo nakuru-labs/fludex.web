@@ -1,10 +1,10 @@
 ---
 title: Overview Module
-description: FludeX Overview — a pre-built runtime diagnostic dashboard for Unity with System, Display, Build, and Runtime info tabs. No configuration required.
+description: FludeX Overview — a pre-built runtime diagnostic dashboard for Unity with System, Display, Build, Runtime, and PlayerPrefs info tabs. No configuration required.
 head:
   - - meta
     - name: keywords
-      content: Unity runtime diagnostics, Unity system info panel, Unity debug dashboard, Unity build info runtime, Unity display info debug, runtime stats panel Unity
+      content: Unity runtime diagnostics, Unity system info panel, Unity debug dashboard, Unity build info runtime, Unity display info debug, runtime stats panel Unity, Unity PlayerPrefs editor, runtime PlayerPrefs viewer Unity
 ---
 
 # Overview Module
@@ -19,6 +19,11 @@ A pre-built diagnostic dashboard that ships with a `FludexModuleDescriptor` asse
 | **Display** | Screen configuration: resolution, DPI, safe area, orientation, and fullscreen mode |
 | **Build** | Application and build info: product name, version, platform, Unity version, scripting backend, and built-in scenes |
 | **Runtime** | Live application state: quality level, frame timing, and currently loaded scenes |
+| **PlayerPrefs** | Live PlayerPrefs access: watch keys, manage any key by name, check encryption status, and clear everything |
+
+## PlayerPrefs Tab
+
+Watch, manage, and clear the game's own `PlayerPrefs` from the panel — including a Danger Zone card to clear everything at once. See [PlayerPrefs](./features/playerprefs) for the full breakdown.
 
 ## Extending the Overview Module
 

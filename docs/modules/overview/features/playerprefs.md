@@ -11,7 +11,7 @@ head:
 
 Watch, edit, and clear the game's own `PlayerPrefs` directly from the panel — built on Core's [PlayerPrefs Access](../../../core/playerprefs) service.
 
-<!-- TODO: screenshot/video — WATCHING KEYS list and Manage keys drill-down -->
+<img src="/overview/playerprefs.jpg" alt="Overview module's PlayerPrefs tab, showing the WATCHING KEYS list, Manage keys, Encryption status, and Danger Zone sections" width="645" height="1192" style="display: block; margin: 0 auto;" />
 
 ## WATCHING KEYS
 

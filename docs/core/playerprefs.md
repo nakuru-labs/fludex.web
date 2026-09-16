@@ -75,7 +75,7 @@ _playerPrefs.Changed += key =>
 
 ## Encryption
 
-String values can be transparently encrypted at rest by supplying an `IFludexPlayerPrefsEncryptor`:
+`IFludexPlayerPrefsEncryptor` isn't FludeX adding its own protection — it's how you tell the service about encryption your game is already doing. If your game encrypts the string values it stores in `PlayerPrefs` with its own scheme, register an encryptor wrapping that scheme so this service's reads and writes stay consistent with it, instead of returning raw ciphertext where you expect a real value:
 
 ```csharp
 public interface IFludexPlayerPrefsEncryptor
@@ -100,4 +100,4 @@ When set:
 - **Only string values are encrypted.** `Bool`/`Int`/`Float` always go through `PlayerPrefs` natively — ciphertext can't be stored as a native int or float.
 - `HasEncryptor` reports `true`.
 
-No encryptor implementation ships with FludeX — it's purely a consumer-provided extension point. With none configured, string values are stored and read as plain text.
+No encryptor implementation ships with FludeX — it's purely a consumer-provided extension point wrapping the game's own scheme. With none configured, string values are stored and read as plain text.

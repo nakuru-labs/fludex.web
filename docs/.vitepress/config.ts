@@ -118,6 +118,7 @@ export default defineConfig({
         text: 'Overview Module',
         items: [
           { text: 'Documentation', link: '/modules/overview/' },
+          { text: 'PlayerPrefs', link: '/modules/overview/features/playerprefs' },
           { text: 'Changelog', link: '/modules/overview/changelog' },
         ],
       },

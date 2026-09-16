@@ -23,17 +23,7 @@ A pre-built diagnostic dashboard that ships with a `FludexModuleDescriptor` asse
 
 ## PlayerPrefs Tab
 
-Reads and writes the game's own `PlayerPrefs` at runtime — the same values exposed to code by [PlayerPrefs Access](../../core/playerprefs).
-
-**WATCHING KEYS** lists every key added to the watch list, showing its live value and type at a glance. Tap a watched key to change its type, set a new value, clear it, or stop watching it.
-
-**Manage keys** is a separate drill-down for checking, setting, or clearing any key by name, without adding it to the watch list.
-
-An **Encryption** row shows whether a custom `IFludexPlayerPrefsEncryptor` is configured — see [Encryption](../../core/playerprefs#encryption).
-
-### Danger Zone
-
-A single card clears every PlayerPrefs entry for the game at once — not just keys the tab is watching or managing — behind a confirm/cancel dialog.
+Watch, manage, and clear the game's own `PlayerPrefs` from the panel — including a Danger Zone card to clear everything at once. See [PlayerPrefs](./features/playerprefs) for the full breakdown.
 
 ## Extending the Overview Module
 

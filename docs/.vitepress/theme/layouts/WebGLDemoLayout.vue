@@ -24,7 +24,7 @@ import BokehBackground from '../components/BokehBackground.vue'
         </div>
         <p class="demo-hint">
           <span class="demo-hint__icon">👆</span>
-          <span>Double-tap the trigger button, or press <kbd>`</kbd> to show / hide the debug panel. Long-tap and drag the button to move it. Select a log and press <kbd>Ctrl+C</kbd> / <kbd>Cmd+C</kbd> to copy it.</span>
+          <span>Triple-tap the trigger at the bottom center of the screen, or press <kbd>`</kbd> to show / hide the debug panel. Select a log and press <kbd>Ctrl+C</kbd> / <kbd>Cmd+C</kbd> to copy it.</span>
         </p>
         <div class="demo-player">
           <iframe

@@ -31,12 +31,12 @@ Below these, the tray shows the standard About + Links block — current version
 
 ## Persistence vs. `FludexConfig`
 
-Core Settings is backed by `IFludexRuntimeConfiguration`, a mutable, persisted layer distinct from the immutable `FludexConfig` you pass to `FludeX.Instance.Initialize(...)`. `FludexConfig` (or, when you pass none, the [Editor defaults](./editor-settings)) only supplies the *seed* values — see [Configuration Layers](./configuration-layers). After that, whatever the player changes in Core Settings takes over and survives app restarts, independent of what your code passes at `Initialize()` time.
+Core Settings is backed by `IFludexRuntimeConfiguration`, a mutable, persisted layer distinct from the immutable `FludexConfig` you pass to `FludeX.Instance.Initialize(...)`. `FludexConfig` only supplies the *seed* values the first time FludeX runs on a device — after that, whatever the player changes in Core Settings takes over and survives app restarts, independent of what your code passes at `Initialize()` time.
 
 These values are stored in their own JSON file rather than PlayerPrefs, so they're isolated from the host game's PlayerPrefs usage — a `PlayerPrefs.DeleteAll()` call elsewhere in your game won't wipe them. Existing PlayerPrefs-stored settings from before this change are migrated automatically on first launch.
 
 ### Resetting to defaults
 
-At the bottom of the tray, a **Danger Zone** section holds a single **Reset Settings** button. It asks for confirmation first — a confirm/cancel dialog — then restores every Core setting to its starting value — your `FludexConfig` if you pass one, otherwise the [Editor defaults](./editor-settings), otherwise FludeX's built-in values. See [Configuration Layers](./configuration-layers). The [trigger's runtime configuration](./triggers#runtime-configuration) — position, padding, radius, opacity — is reset along with everything else.
+At the bottom of the tray, a **Danger Zone** section holds a single **Reset Settings** button. It asks for confirmation first — a confirm/cancel dialog — then restores every Core setting to its `FludexConfig` seed value, or FludeX's built-in default for anything `FludexConfig` didn't set. The [trigger's runtime configuration](./triggers#runtime-configuration) — position, padding, radius, opacity — is reset along with everything else.
 
 A reset like this exists for **Core** and **Console** only. The Overview and Playground modules have no persisted or adjustable settings of their own, so there is nothing for them to reset.

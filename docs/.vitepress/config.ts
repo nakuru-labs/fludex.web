@@ -103,12 +103,9 @@ export default defineConfig({
         items: [
           { text: 'Overview', link: '/core/' },
           { text: 'Triggers', link: '/core/triggers' },
-          { text: 'Sticky Trigger', link: '/core/sticky-trigger' },
-          { text: 'Editor Settings Window', link: '/core/editor-settings' },
           { text: 'WidgetsBook', link: '/core/widgets-book' },
           { text: 'Conditional Widgets', link: '/core/conditional-widgets' },
           { text: 'Core Settings', link: '/core/core-settings' },
-          { text: 'Configuration Layers', link: '/core/configuration-layers' },
           { text: 'Haptics', link: '/core/haptics' },
           { text: 'Custom Modules', link: '/core/custom-modules' },
           { text: 'Persistent Storage', link: '/core/persistent-storage' },

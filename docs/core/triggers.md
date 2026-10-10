@@ -4,12 +4,12 @@ title: Triggers
 
 # Triggers
 
-By default, FludeX opens with both triggers active simultaneously:
+By default, FludeX opens with two triggers active simultaneously:
 
-- **Tap trigger** — triple-tap the on-screen hit area (bottom-center). Works on all platforms.
+- **[Sticky trigger](./sticky-trigger)** — a small FludeX button on screen. Double-tap it to open the panel, or press and hold to drag it anywhere. Works on all platforms.
 - **Keyboard trigger** — press the BackQuote key (`` ` `` / `~`). Works on desktop and editor.
 
-Both can be replaced or combined using `Initialize(trigger)`.
+The tap trigger described below is still available. Devices that were already opening FludeX with it keep it (unless a Default Trigger is chosen in the [Editor Settings window](./editor-settings#default-trigger)). Any of these can be replaced or combined using `Initialize(trigger)`; see [Configuration Layers](./configuration-layers#the-exception-default-trigger) for the order FludeX uses to pick the trigger.
 
 ## Tap Trigger
 

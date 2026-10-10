@@ -10,6 +10,8 @@ The Editor Settings window lets you configure FludeX's **project defaults** from
 
 Choose **Window → FludeX → Settings**. The window has a sidebar listing **Core** first, then every installed module in its sort order (disabled modules are listed too, so you can still browse their settings), each with its version. Select an entry to open its page. Drag the divider to resize the sidebar — the width is remembered between Editor sessions.
 
+<img src="/editor-settings.png" alt="FludeX Editor Settings window with the module sidebar on the left and the selected page's settings on the right" width="671" height="1083" style="display: block; margin: 0 auto;" />
+
 ## What You Can Configure
 
 | Entry | What it offers |
